@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.row {
+    --bs-gutter-x: 0;
+}
+.my-nav {
+    background-color: #383533;
+}
+.home-page {
+    background-color: red;
+    height: 100vh;
+}
