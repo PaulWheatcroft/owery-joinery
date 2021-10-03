@@ -12,22 +12,16 @@ body {
     background-color: #383533;
 }
 .home-page {
-    background-color: red;
     height: 100vh;
+    background: url('/media/pilton-1.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 .home-page i {
     font-size: 4em;
 }
-.my-container {
-    background-color: greenyellow;
-}
 .my-row {
-    background-color: hotpink;
-    padding-top: 106px;
-    padding-bottom: 50px;
-}
-.my-col {
-    background-color: indigo;
+    padding-top: 116px;
+    padding-bottom: 60px;
 }
 .my-link {
     background-color: #F0AE0E;
