@@ -8,13 +8,16 @@ body {
 .row {
     --bs-gutter-x: 0;
 }
+.my-container {
+    background: url('/media/pilton.jpg');
+    background-position: center;
+    background-size: cover;
+}
 .my-nav {
     background-color: #383533;
 }
 .home-page {
     height: 100vh;
-    background: url('/media/pilton-1.jpg') no-repeat center center fixed;
-    background-size: cover;
 }
 .home-page i {
     font-size: 4em;
