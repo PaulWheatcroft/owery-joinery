@@ -5,6 +5,9 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+button:active {
+    background-color: #3e8e41;
+}
 .row {
     --bs-gutter-x: 0;
 }
