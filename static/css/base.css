@@ -22,23 +22,40 @@ body {
 .home-page i {
     font-size: 4em;
 }
-.my-row {
-    padding-top: 116px;
+.home-row {
+    padding-top: 136px;
     padding-bottom: 60px;
 }
-.my-link {
+.home-links {
     background-color: #F0AE0E;
     color: #383533;
     display: inline-block;
     font-size: 25px;
-    border-radius: 4px;
+    border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
     line-height: 50px;
     text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.home-links:hover {
+    background-color: #FFDD8B;
+    color: #383533;
+}
+.my-footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #383533;
+    color: #f1f1f1;
+    border-top: #F0AE0E solid 5px;
+    font-size: small;
+}
+.my-footer div ul {
+    list-style-type: none;
+    padding: 0;
 }
 @media (min-width: 992px) {
-    .my-link {
+    .home-links {
         font-size: 40px;
         padding-left: 20px;
         padding-right: 20px;
