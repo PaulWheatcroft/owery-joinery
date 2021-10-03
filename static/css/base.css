@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 .row {
     --bs-gutter-x: 0;
@@ -20,7 +23,29 @@ body {
 }
 .my-row {
     background-color: hotpink;
+    padding-top: 106px;
+    padding-bottom: 50px;
 }
 .my-col {
     background-color: indigo;
+}
+.my-link {
+    background-color: #F0AE0E;
+    color: #383533;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 50px;
+    text-decoration: none;
+}
+@media (min-width: 992px) {
+    .my-link {
+        font-size: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 6px;
+        line-height: 60px;
+    } 
 }
