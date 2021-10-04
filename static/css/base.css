@@ -57,6 +57,12 @@ button:active {
     list-style-type: none;
     padding: 0;
 }
+.message-container {
+    position: fixed;
+    top: 80px;
+    right: 15px;
+    z-index: 99999999999;
+}
 @media (min-width: 992px) {
     .home-links {
         font-size: 40px;
