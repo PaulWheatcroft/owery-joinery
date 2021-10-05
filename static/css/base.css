@@ -57,11 +57,15 @@ button:active {
     list-style-type: none;
     padding: 0;
 }
+/* Toast */
 .message-container {
     position: fixed;
     top: 80px;
     right: 15px;
     z-index: 99999999999;
+}
+.toast-body {
+    text-shadow: 2px 2px 3px rgb(53, 53, 53);
 }
 @media (min-width: 992px) {
     .home-links {
