@@ -1,0 +1,1 @@
+web: gunicorn owery-joinery.wsgi:application
