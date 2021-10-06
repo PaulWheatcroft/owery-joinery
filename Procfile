@@ -1,1 +1,1 @@
-web: gunicorn owery-joinery.wsgi:application
+web: gunicorn owery_joinery.wsgi:application
