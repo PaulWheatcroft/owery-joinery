@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -98,17 +99,9 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-
+DATABASES = {
+    'default': dj_database_url.parse('postgres://yjwwajvglnkmoe:f05fa0aac55b86f6a3e6f73855aa055cbc8c5f75c8bdafab24748d50d35ee5ee@ec2-54-155-61-133.eu-west-1.compute.amazonaws.com:5432/d4nt2m1os4tqos')
+}
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
