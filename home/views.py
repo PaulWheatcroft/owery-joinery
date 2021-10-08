@@ -3,7 +3,7 @@ from django.contrib import messages
 
 
 def index(request):
-    """ Load index page """
+    """ A view to return the index page """
     messages.info(request, 'Testing alerts show correctly.')
 
     return render(request, 'home/index.html')
