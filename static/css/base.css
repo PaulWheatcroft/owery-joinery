@@ -4,6 +4,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    background-color: #FFDD8B;
+}
+h1 {
+    text-align: center;
 }
 button:active {
     background-color: #3e8e41;
@@ -17,7 +21,7 @@ button:active {
     background-size: cover;
 }
 .my-row {
-    padding-top: 136px;
+    padding-top: 96px;
     padding-bottom: 60px;
 }
 .my-nav {
@@ -68,6 +72,54 @@ button:active {
 .toast-body {
     text-shadow: 2px 2px 3px rgb(53, 53, 53);
 }
+/** Specific styling for procuts **/
+.product {
+    background-color: #F0AE0E;
+    border: none;
+    max-width: 400px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.product p {
+    font-size: 11px;
+    padding: 5px;
+}
+.product-name {
+    width: 100%;
+    background-color: #383533;
+    text-align: center;
+    border-radius: 5px 5px 0px 0px;
+}
+.product h3 {
+    font-size: 14px;
+    line-height: 38px;
+    color: #f1f1f1;
+    display: inline-block;
+    margin: 0;
+}
+.product-details {
+    height: 170px;
+}
+
+.product img {
+    max-width: 110px;
+}
+.product-purchase {
+    background-color: #383533;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    color: #f1f1f1;
+}
+.product-purchase p {
+    font-size: 14px;
+    line-height: 28px;
+    margin: 0px;
+}
+.product-add-to-bag {
+    display: block;
+    background-color: #7EC5DB;
+    border-radius: 0px 0px 5px 5px;
+}
 @media (min-width: 992px) {
     .home-links {
         font-size: 40px;
@@ -75,5 +127,8 @@ button:active {
         padding-right: 20px;
         padding-bottom: 6px;
         line-height: 60px;
-    } 
+    }
+    .product img {
+        max-width: 125px;
+    }
 }

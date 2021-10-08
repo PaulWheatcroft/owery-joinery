@@ -3,20 +3,43 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="row my-row align-items-center">
-        <div class="col-12 col-lg-8 offset-lg-2">
-            <h1>This is the Products Page</h1>
-            
-            {% for product in products %}
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-left" src="{{ MEDIA_URL }}{{ product.image }}" alt="Card image cap">
-                <div class="card-body">
-                    <h3>{{ product.name|title }}</h3>
-                    <p class="card-text">{{ product.description }}</p>
-                    <p><strong>£{{ product.price }}</strong></p>
-                </div>
-              </div>
-            {% endfor %}
+    <div class="row my-row">
+        <div class="col-12 col-md-10 offset-lg-1">
+            <h1>Products</h1>
+            <div class="row justify-content-around">
+                {% for product in products %}
+                <div class="card col-12 product">
+                    <div class="row">
+                        <div class="col product-name">
+                            <h3>{{ product.name|title }}</h3>
+                        </div>
+                    </div>
+    
+                    
+                    <div class="row product-details">
+                        <div class="col-4">
+                            <img class="product-img" src="{{ MEDIA_URL }}{{ product.image }}" alt="Card image cap">
+                        </div>
+                        <div class="col-8">
+                            <p class="card-text">{{ product.description }}</p>
+                        </div>
+                    </div>
+    
+                    <div class="row product-purchase">
+                        <div class="col-4">
+                            <p>£{{ product.price }}</p>
+                        </div>
+                        <div class="col-8">
+                            <p>Select Quantity 1</p>
+                        </div>
+                        <div class="col-12">
+                            <a href="#" class="btn product-add-to-bag">Add to bag <i class="fas fa-cart-plus"></i></a>
+                        </div>
+                    </div>
+                </div>              
+                {% endfor %}
+            </div>
+
         </div>
     </div>
 </div>
