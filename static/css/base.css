@@ -16,6 +16,10 @@ button:active {
     background-position: center;
     background-size: cover;
 }
+.my-row {
+    padding-top: 136px;
+    padding-bottom: 60px;
+}
 .my-nav {
     background-color: #383533;
 }
@@ -25,10 +29,7 @@ button:active {
 .home-page i {
     font-size: 4em;
 }
-.home-row {
-    padding-top: 136px;
-    padding-bottom: 60px;
-}
+
 .home-links {
     background-color: #F0AE0E;
     color: #383533;
