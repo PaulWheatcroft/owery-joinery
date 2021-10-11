@@ -9,8 +9,6 @@ def index(request):
 
     categories = Category.objects.all()
 
-    print(categories)
-
     context = {
         'categories': categories
     }

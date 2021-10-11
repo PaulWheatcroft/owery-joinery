@@ -8,7 +8,9 @@ from .models import Product
 def all_products(request):
     """ A view to return all products """
 
-    products = Product.objects.all()
+    all_avilable_products = Product.objects.all()
+
+    products = all_avilable_products.order_by('category')
 
     context = {
         'products': products,
