@@ -4,21 +4,12 @@
 {% block content %}
     <div class="container-fluid my-container">
         <div class="row home-page align-items-center my-row">
+            {% for category in categories %}
             <div class="col-12 col-lg-8 offset-lg-2 my-col">
-                <a href="#" class="home-links">Shop Skirting Boards</a>
+                <a href="{% url 'filtered_products' category_id=category.id %}" class="home-links">Shop {{ category.friendly_name }}</a>
             </div>
-            <div class="col-12 col-lg-8 offset-lg-2 my-col">
-                <a href="#" class="home-links">Shop Architraves</a>
-            </div>
-            <div class="col-12 col-lg-8 offset-lg-2 my-col">
-                <a href="#" class="home-links">Shop Window Boards</a>
-            </div>
-            <div class="col-12 col-lg-8 offset-lg-2 my-col">
-                <a href="#" class="home-links">Shop Doors</a>
-            </div>
-            <div class="col-12 col-lg-8 offset-lg-2 my-col">
-                <a href="#" class="home-links">Shop Ironmongery</a>
-            </div>
+            {% endfor %}
+            
         </div>
     </div>
     

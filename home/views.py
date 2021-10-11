@@ -1,9 +1,18 @@
 from django.shortcuts import render
 from django.contrib import messages
+from products.models import Category
 
 
 def index(request):
     """ A view to return the index page """
     messages.info(request, 'Testing alerts show correctly.')
 
-    return render(request, 'home/index.html')
+    categories = Category.objects.all()
+
+    print(categories)
+
+    context = {
+        'categories': categories
+    }
+
+    return render(request, 'home/index.html', context)
