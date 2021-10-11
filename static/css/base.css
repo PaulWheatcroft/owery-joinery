@@ -97,6 +97,9 @@ button:active {
     display: inline-block;
     margin: 0;
 }
+.product-details {
+    height: 170px;
+}
 .product-purchase {
     background-color: #383533;
     border-radius: 0px 0px 5px 5px;
