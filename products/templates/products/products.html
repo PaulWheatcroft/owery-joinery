@@ -27,7 +27,7 @@
                             <p class="card-text">{{ product.description }}</p>
                         </div>
                     </div>
-                    <form action="" method="POST" class="form">
+                    <form action="{% url 'add_to_cart' product.id %}" method="POST" class="form">
                         {% csrf_token %}
                         <div class="row product-purchase">
                             <div class="col-4">
@@ -39,7 +39,8 @@
                                
                             </div>
                             <div class="col-12">
-                                <input type="submit" class="btn product-add-to-bag col-12" value="Add to Cart">
+                                <input type="submit" class="btn product-add-to-cart col-12" value="Add to Cart">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </div>
                     </form>
