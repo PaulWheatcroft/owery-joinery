@@ -97,13 +97,6 @@ button:active {
     display: inline-block;
     margin: 0;
 }
-.product-details {
-    height: 170px;
-}
-
-.product img {
-    max-width: 110px;
-}
 .product-purchase {
     background-color: #383533;
     border-radius: 0px 0px 5px 5px;
@@ -114,6 +107,10 @@ button:active {
     font-size: 14px;
     line-height: 28px;
     margin: 0px;
+}
+.product-quantity {
+    border-radius: 5px;
+    text-align: center;
 }
 .product-add-to-bag {
     display: block;

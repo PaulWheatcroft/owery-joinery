@@ -10,8 +10,6 @@ def all_products(request):
 
     products = Product.objects.all()
 
-    print('all and all')
-
     context = {
         'products': products,
     }
@@ -22,9 +20,9 @@ def all_products(request):
 def filtered_products(request, category_id):
     """ A view to return products filtered by category """
 
-    products = Product.objects.filter(category=category_id)
+    products_in_a_category = Product.objects.filter(category=category_id)
 
-    print('filtered')
+    products = products_in_a_category.order_by('style')
 
     context = {
         'products': products,

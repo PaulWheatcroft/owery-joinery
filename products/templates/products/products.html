@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row my-row">
-        <div class="col-12 col-md-10 offset-lg-1">
+        <div class="col-12 col-md-10 offset-md-1">
             <h1>Products</h1>
             <div class="row justify-content-around">
                 {% for product in products %}
@@ -14,34 +14,41 @@
                             <h3>{{ product.name|title }}</h3>
                         </div>
                     </div>
-    
-                    
+
+
                     <div class="row product-details">
-                        <div class="col-4">
-                            <img class="product-img" src="{{ MEDIA_URL }}{{ product.image }}" alt="Card image cap">
+                        {% if product.image.url %}
+                        <div class="col-4" style="background-image: url({{ product.image.url }}); background-position: center; background-size: cover;"></div>
+                        {% else %}
+                        <div class="col-4" style="background-color:azure;">
                         </div>
+                        {% endif %}
                         <div class="col-8">
                             <p class="card-text">{{ product.description }}</p>
                         </div>
                     </div>
-    
-                    <div class="row product-purchase">
-                        <div class="col-4">
-                            <p>£{{ product.price }}</p>
+                    <form action="" method="POST" class="form">
+                        {% csrf_token %}
+                        <div class="row product-purchase">
+                            <div class="col-4">
+                                <p>£{{ product.price }}</p>
+                            </div>
+                            <div class="col-8">
+                                <p>Select Quantity <input class="product-quantity" type="number" name="quantity" value="1" min="1" max="50"
+                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" style="width: 50px;"></p>  
+                               
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" class="btn product-add-to-bag col-12" value="Add to Bag">
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <p>Select Quantity 1</p>
-                        </div>
-                        <div class="col-12">
-                            <a href="#" class="btn product-add-to-bag">Add to bag <i class="fas fa-cart-plus"></i></a>
-                        </div>
-                    </div>
-                </div>              
+                    </form>
+                </div>
                 {% endfor %}
             </div>
 
         </div>
     </div>
 </div>
-    
+
 {% endblock %}
