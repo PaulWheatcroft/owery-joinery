@@ -9,6 +9,7 @@ body {
 h1 {
     text-align: center;
     padding-bottom: 10px;
+    font-weight: 300;
 }
 button:active {
     background-color: #3e8e41;
@@ -66,8 +67,8 @@ button:active {
 /* Toast */
 .message-container {
     position: fixed;
-    top: 80px;
-    right: 15px;
+    top: 50px;
+    right: 5px;
     z-index: 99999999999;
 }
 .toast-body {

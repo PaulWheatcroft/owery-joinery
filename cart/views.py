@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 
 def view_cart(request):
@@ -20,6 +21,7 @@ def add_to_cart(request, product_id):
         cart[product_id] = quantity
 
     request.session['cart'] = cart
+    messages.info(request, 'Item successfully added to your shopping cart.')
     return redirect(redirect_url)
 
 
@@ -32,7 +34,7 @@ def amend_cart(request,  product_id):
     cart[product_id] = quantity
 
     request.session['cart'] = cart
-
+    messages.info(request, 'Item successfully amended in your shopping cart.')
     return render(request, 'cart/cart.html')
 
 
@@ -44,5 +46,5 @@ def remove_product_from_cart(request, product_id):
     del cart[product_id]
 
     request.session['cart'] = cart
-
+    messages.info(request, 'Item successfully removed from your shopping cart.')
     return render(request, 'cart/cart.html')
