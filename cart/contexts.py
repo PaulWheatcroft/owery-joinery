@@ -12,9 +12,12 @@ def contents_of_cart(request):
     product_count = 0
     delivery = Decimal(10.00)
     grand_total = total + delivery
-    cart = request.session['cart']
+    cart = {
+        '2': 3,
+        '3': 5,
+    }
 
-    """ for product_id, quantity in cart.items():
+    for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
         line_total = quantity * product.price
         cart_items.append({
@@ -25,7 +28,7 @@ def contents_of_cart(request):
             'line_total': line_total,
         })
 
-        grand_total = grand_total + line_total """
+        grand_total = grand_total + line_total
 
     context = {
         'cart_items': cart_items,
