@@ -7,6 +7,7 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
+"""
 def add_to_cart(request, product_id):
     """ Add the quantity of a product to the shopping cart """
 
@@ -21,3 +22,10 @@ def add_to_cart(request, product_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+"""
+
+
+def add_to_cart(request, product_id):
+    """ Add the quantity of a product to the shopping cart """
+
+    print(product_id)
