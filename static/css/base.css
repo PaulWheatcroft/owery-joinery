@@ -115,10 +115,13 @@ button:active {
     border-radius: 5px;
     text-align: center;
 }
-.product-add-to-cart {
+.product-add-to-cart p {
     display: block;
     background-color: #7EC5DB;
     border-radius: 0px 0px 5px 5px;
+}
+.cart-card {
+    background-color: red;
 }
 @media (min-width: 992px) {
     .home-links {
