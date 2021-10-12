@@ -5,6 +5,7 @@ from products.models import Product
 
 
 def contents_of_cart(request):
+    """ Return the cart contents to a site wide context """
 
     cart_items = []
     total = 0
@@ -32,7 +33,6 @@ def contents_of_cart(request):
         'product_count': product_count,
         'delivery': delivery,
         'grand_total': grand_total,
-        'cart': cart,
     }
 
     return context
