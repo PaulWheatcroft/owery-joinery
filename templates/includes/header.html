@@ -8,9 +8,14 @@
             </button>
             <div class="collapse text-center navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}">Products</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu">
+                            {% for category in categories %}
+                                <li><a href="{% url 'filtered_products' category_id=category.id %}" class="dropdown-item">{{ category.friendly_name }}</a></li>
+                            {% endfor %}                         
+                        </ul>
+                      </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kitchens</a>
                     </li>

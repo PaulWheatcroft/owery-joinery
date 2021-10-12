@@ -5,7 +5,9 @@
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-10 offset-md-1">
-            <h1>Products</h1>
+
+            <h1>{{ category.friendly_name }}</h1>
+
             <div class="row justify-content-around">
                 {% for product in products %}
                 <div class="card col-12 product">

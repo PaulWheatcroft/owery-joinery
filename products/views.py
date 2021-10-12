@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Product, Category
 
 
 # Create your views here.
@@ -23,11 +23,13 @@ def filtered_products(request, category_id):
     """ A view to return products filtered by category """
 
     products_in_a_category = Product.objects.filter(category=category_id)
+    category = Category.objects.get(id=category_id)
 
     products = products_in_a_category.order_by('style')
 
     context = {
         'products': products,
+        'category': category,
     }
 
     return render(request, 'products/products.html', context)
