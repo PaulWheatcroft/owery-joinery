@@ -26,7 +26,10 @@
                         </div>
                         {% endif %}
                         <div class="col-8">
-                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text">{{ product.description }}<br>
+                            <a href="{% url 'product_details' product.id %}">View details</a>
+                            </p>
+                            
                         </div>
                     </div>
                     <form action="{% url 'add_to_cart' product.id %}" method="POST" class="form">

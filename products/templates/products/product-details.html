@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>£{{ product.price }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

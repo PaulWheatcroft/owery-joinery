@@ -33,3 +33,15 @@ def filtered_products(request, category_id):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def product_details(request, product_id):
+    """ A view to return product details """
+
+    product = Product.objects.get(id=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product-details.html', context)
