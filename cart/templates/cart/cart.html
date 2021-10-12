@@ -19,24 +19,26 @@
                                 <p><strong>{{ item.product.name }}</strong></p>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col cart-text-pading">
-                                <p style="padding-top: 3px;">Quantity:</p>
+                        <form action="{% url 'amend_cart' item.product.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col cart-text-pading">
+                                    <p style="padding-top: 3px;">Quantity:</p>
+                                </div>
+                                <div class="col">
+                                    <input class="product-quantity" type="number" name="quantity"
+                                        value="{{ item.quantity }}" min="1" max="50" data-item_id="{{ item.id }}"
+                                        id="id_qty_{{ item.id }}" style="width: 50px;">
+                                </div>
+                                <div class="col">
+                                    <input type="submit" class="btn btn-sm btn-primary" value="Update">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </div>
+                                <div class="col">
+                                    <a href="{% url 'remove_product_from_cart' item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
+                                </div>
                             </div>
-                            <div class="col">
-                                <input class="product-quantity" type="number" name="quantity"
-                                    value="{{ item.quantity }}" min="1" max="50" data-item_id="{{ product.id }}"
-                                    id="id_qty_{{ product.id }}" style="width: 50px;">
-                            </div>
-                            <div class="col">
-                                <input type="submit" class="btn btn-sm btn-primary" value="Update">
-                            </div>
-                            <div class="col">
-                                <input type="submit" class="btn btn-sm btn-danger" value="Remove">
-                            </div>
-                        </div>
-
+                        </form> 
                         <div class="row">
                             <div class="col text-end">
                                 <p>Product total: £{{ item.line_total }}</p>
