@@ -12,10 +12,7 @@ def contents_of_cart(request):
     product_count = 0
     delivery = Decimal(10.00)
     grand_total = total + delivery
-    cart = request.session.get('cart', {
-        '2': 3,
-        '3': 5,
-    })
+    cart = request.session.get('cart', {})
 
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
