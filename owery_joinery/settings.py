@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'storages',
     'cart',
     'checkout',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'owery_joinery.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -85,6 +88,10 @@ TEMPLATES = [
                 'cart.contexts.contents_of_cart',
                 'products.contexts.list_of_categories',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
