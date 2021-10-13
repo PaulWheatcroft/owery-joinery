@@ -8,20 +8,17 @@
         <div class="col-12 col-md-10 offset-md-1">
             <h1>Your Shopping Cart</h1>
             <div class="row">
-                <div class="col col-lg-6">
+                <div class="col col-lg-8 offset-lg-2">
                     {% if cart_items %}
 
                     {% for item in cart_items %}
                     <div class="cart-card">
-
-                        <div class="row">
-                            <div class="col">
-                                <p><strong>{{ item.product.name }}</strong></p>
-                            </div>
-                        </div>
                         <form action="{% url 'amend_cart' item.product.id %}" method="POST">
                             {% csrf_token %}
                             <div class="row">
+                                <div class="col-12 col-lg-5">
+                                    <p><strong>{{ item.product.name }}</strong></p>
+                                </div>
                                 <div class="col cart-text-pading">
                                     <p style="padding-top: 3px;">Quantity:</p>
                                 </div>
@@ -60,7 +57,7 @@
                                     <p>Total £{{ grand_total }}</p>
                                 </div>
                             </div>
-                            
+                            <a href="{% url 'checkout' %}">Check Out</a>
                             
                         </div>
                     </div>

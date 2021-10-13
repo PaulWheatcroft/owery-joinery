@@ -4,24 +4,28 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row my-row">
-        <div class="col-12 col-md-6 offset-md-3">
+        <div class="col-12 col-md-8 offset-md-2">
             <div class="row">
                 <div class="col">
                     <h1>Checkout</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-lg-6">
-                    <h4>Order Summery</h4>
+                
+                <div class="col-12 col-lg-5">
+                    <p class="text-center">Order Summery</p>
                     {% for item in cart_items %}
                     <div class="cart-card">
-                        <p><strong>{{ item.product.name }}</strong><br>
-                            Quantity: {{ item.quantity }} Price: £{{ item.line_total }}</p>
+                        <p><strong>{{ item.product.name }}</strong></p>
+                            <p class="text-end">Quantity: {{ item.quantity }} Price: £{{ item.line_total }}</p>
                     </div>
                     {% endfor %}
+                    <div class="cart-card">
+                        <p class="text-end">Grand Total: <strong>£{{ grand_total }}</strong></p>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <p>Please complete the form below</p>
+                <div class="col-12 col-lg-6 offset-lg-1">
+                    <p class="text-center">Please complete the form below</p>
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
                         <fieldset class="rounded px-3 mb-5">
@@ -77,4 +81,11 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block extrajs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
