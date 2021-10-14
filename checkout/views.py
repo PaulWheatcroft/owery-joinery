@@ -30,12 +30,16 @@ def checkout(request):
             'country': request.POST['country'],
         }
         order_form = OrderForm(form_data)
-        order_form.save()
-
-        for product_id, quantity in cart.items():
-            print(product_id, quantity, product_id.price)
-            print('******')
-            
+        if order_form.is_valid():
+            order = order_form.save()
+            for product_id, quantity in cart.items():
+                product = Product.objects.get(id=product_id)
+                order_line_items = OrderLineItems(
+                    order=order,
+                    product=product,
+                    quantity=quantity,
+                )
+                order_line_items.save()
 
         categories = Category.objects.all()
 
