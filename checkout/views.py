@@ -5,7 +5,7 @@ from cart.contexts import contents_of_cart
 
 from .forms import OrderForm
 from .models import Order, OrderLineItems
-from products.models import Product
+from products.models import Product, Category
 
 import stripe
 
@@ -30,14 +30,20 @@ def checkout(request):
             'country': request.POST['country'],
         }
         order_form = OrderForm(form_data)
-        print('***')
-        print(order_form)
-        print('***')
-        print(form_data)
-        print('***')
+        order_form.save()
+
         for product_id, quantity in cart.items():
-            print(product_id, quantity)
+            print(product_id, quantity, product_id.price)
             print('******')
+            
+
+        categories = Category.objects.all()
+
+        context = {
+            'categories': categories
+        }
+
+        return render(request, 'home/index.html', context)
 
     else:
         cart = request.session.get('cart', {})
