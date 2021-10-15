@@ -6,6 +6,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #FFDD8B;
 }
+.top-margin {
+    margin-top: 10px;
+}
 h1 {
     text-align: center;
     padding-bottom: 10px;
@@ -119,12 +122,28 @@ h1 {
     background-color: #7EC5DB;
     border-radius: 0px 0px 5px 5px;
 }
+.order-summary {
+    font-size: 11px;
+}
 .cart-card {
     margin-bottom: 10px;
     border-bottom: 1px solid #383533;
 }
-.btn {
-    margin-top: 10px;
+.order-summary-card {
+    font-size: 11px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #383533;
+}
+.order-summary-card p {
+    margin-bottom: 5px;
+}
+.stripe-style-input {
+    margin-bottom: 10px;
+}
+#card-element {
+    border: 1px solid #cacaca;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 @media (min-width: 992px) {
     .home-links {
