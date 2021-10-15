@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
 from cart.contexts import contents_of_cart
 
 from .forms import OrderForm
-from .models import Order, OrderLineItems
+from .models import OrderLineItems
 from products.models import Product, Category
 
 import stripe
@@ -47,6 +47,9 @@ def checkout(request):
             'categories': categories
         }
 
+        cart = {}
+        request.session['cart'] = cart
+
         return render(request, 'home/index.html', context)
 
     else:
@@ -63,7 +66,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        
+  
         order_form = OrderForm()
         context = {
             'order_form': order_form,

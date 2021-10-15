@@ -122,6 +122,12 @@ h1 {
     background-color: #7EC5DB;
     border-radius: 0px 0px 5px 5px;
 }
+/** Specific CSS for the shopping cart **/
+.cart-total {
+    background-color: #FFDD8B;
+    border: 0px;
+}
+/** Specific CSS for the checkout **/
 .order-summary {
     font-size: 11px;
 }

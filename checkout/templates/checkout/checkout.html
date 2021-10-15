@@ -32,7 +32,7 @@
                     <div class="cart-card">
                         <p class="text-end">Grand Total: <strong>£{{ grand_total }}</strong></p>
                     </div>
-                    <a href="{% url 'view_cart' %}">Amend Cart</a>
+                    <a href="{% url 'view_cart' %}" class="btn btn-primary col-12 col-md-4 margin-top">Amend Cart</a>
                 </div>
                 <div class="col-12 col-lg-6 offset-lg-1">
                     <p class="text-center">Please complete the form below</p>
@@ -81,7 +81,7 @@
                             </div>
                         </fieldset>
                         <p>Your card will be charged £{{ grand_total | floatformat:2 }}</p>
-                        <button type="submit" id="submit-button" class="btn btn-primary col-12 col-md-4 margin-top">Complete Order</button>
+                        <button type="submit" id="submit-button" class="btn btn-success col-12 col-md-4 margin-top">Complete Order</button>
                         
 
                     </form>
