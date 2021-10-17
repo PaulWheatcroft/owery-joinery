@@ -7,7 +7,7 @@ from products.models import Product
 
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=32, null=False, editable=False)
+    order_number = models.CharField(max_length=10, null=False, editable=False)
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -30,7 +30,9 @@ class Order(models.Model):
         """
         Generate a random, unique order number
         """
-        return uuid.uuid4().hex.upper()
+        order_id = str(uuid.uuid4().hex.upper())
+        order_id_10 = order_id[0:10]
+        return order_id_10
 
     def save(self, *args, **kwargs):
         """

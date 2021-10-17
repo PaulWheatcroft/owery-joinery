@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col">
+                    <h1>Order Confirmation</h1>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-12">
+                    <p>Thank you for your order {{ order }}</p>
+                    <p>A confirmation email has been sent to the {{ order.email }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% for category in categories %}
+                    <div class="col-12 col-lg-8 offset-lg-2 my-col">
+                        <a href="{% url 'filtered_products' category_id=category.id %}" class="home-links">Shop {{ category.friendly_name }}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

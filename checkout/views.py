@@ -41,16 +41,14 @@ def checkout(request):
                 )
                 order_line_items.save()
 
-        categories = Category.objects.all()
-
         context = {
-            'categories': categories
+            'order': order
         }
 
         cart = {}
         request.session['cart'] = cart
 
-        return render(request, 'home/index.html', context)
+        return render(request, 'checkout/checkout-success.html', context)
 
     else:
         cart = request.session.get('cart', {})
@@ -66,7 +64,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-  
+
         order_form = OrderForm()
         context = {
             'order_form': order_form,

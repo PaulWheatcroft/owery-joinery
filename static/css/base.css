@@ -151,6 +151,9 @@ h1 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+#card-errors {
+    background-color: red;
+}
 @media (min-width: 992px) {
     .home-links {
         font-size: 40px;
