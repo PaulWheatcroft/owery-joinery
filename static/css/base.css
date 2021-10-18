@@ -32,6 +32,7 @@ h1 {
 .nav-cart-icon {
     float: right;
     color: #f1f1f1;
+    margin-left: 40px;
 }
 .nav-cart-icon a {
     text-decoration: none;
@@ -42,11 +43,11 @@ h1 {
 .nav-cart-number {
     display: inline-block;
     background-color: #F0AE0E;
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     font-size: 10px;
     font-weight: 600;
-    line-height: 16px;
+    line-height: 17px;
     border-radius: 50%;
     color: #383533;
     text-align: center;
@@ -149,7 +150,6 @@ h1 {
 }
 .product-purchase p {
     font-size: 14px;
-    line-height: 28px;
     margin: 0px;
 }
 .product-quantity {

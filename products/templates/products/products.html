@@ -36,7 +36,7 @@
                         {% csrf_token %}
                         <div class="row product-purchase">
                             <div class="col-4">
-                                <p>£{{ product.price }}</p>
+                                <p style="margin-top: 4px;">£{{ product.price }}</p>
                             </div>
                             <div class="col-8">
                                 <p>Select Quantity <input class="product-quantity" type="number" name="quantity" value="1" min="1" max="50"
