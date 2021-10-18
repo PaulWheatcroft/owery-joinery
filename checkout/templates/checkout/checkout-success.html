@@ -11,17 +11,17 @@
                 </div>
             </div>
             <div class="row">                
-                <div class="col-12">
+                <div class="col-12 col-lg-6 offset-lg-3">
                     <p>Thank you for your order {{ order }}</p>
-                    <div class="col-12 col-lg-5">
+                    <div class="col-12">
                         {% for item in order_items %}
                         <div class="order-summary-card">
                             <div class="row">
-                                <div class="col-9 col-md-10">
+                                <div class="col-9">
                                     <p><strong>{{ item.product.name }}</strong></p>
                                 </div>
-                                <div class="col-3 col-md-2">
-                                    <p>Price: £{{ item.line_total }}</p>
+                                <div class="col-3">
+                                    <p>Price: £{{ item.product.price }}</p>
                                 </div>
                             </div>
                             
@@ -39,11 +39,13 @@
             </div>
             <div class="row">
                 <div class="col">
-                    {% for category in categories %}
-                    <div class="col-12">
-                        <a href="{% url 'filtered_products' category_id=category.id %}" class="btn btn-owery top-margin">Shop {{ category.friendly_name }}</a>
+
+                    <div class="col-12 col-md-6 offset-md-3">
+                        {% for category in categories %}
+                        <a href="{% url 'filtered_products' category_id=category.id %}" class="btn btn-owery top-margin">Shop {{ category.friendly_name }} <i class="fas fa-arrow-circle-right"></i></a>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+                   
                 </div>
             </div>
         </div>
