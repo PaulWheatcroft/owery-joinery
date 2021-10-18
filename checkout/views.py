@@ -32,6 +32,7 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
+            order_items = []
             for product_id, quantity in cart.items():
                 product = Product.objects.get(id=product_id)
                 order_line_items = OrderLineItems(
@@ -39,10 +40,12 @@ def checkout(request):
                     product=product,
                     quantity=quantity,
                 )
+                order_items.append(order_line_items)
                 order_line_items.save()
 
         context = {
-            'order': order
+            'order': order,
+            'order_items': order_items,
         }
 
         cart = {}

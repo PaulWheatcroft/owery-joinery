@@ -13,14 +13,35 @@
             <div class="row">                
                 <div class="col-12">
                     <p>Thank you for your order {{ order }}</p>
+                    <div class="col-12 col-lg-5">
+                        {% for item in order_items %}
+                        <div class="order-summary-card">
+                            <div class="row">
+                                <div class="col-9 col-md-10">
+                                    <p><strong>{{ item.product.name }}</strong></p>
+                                </div>
+                                <div class="col-3 col-md-2">
+                                    <p>Price: £{{ item.line_total }}</p>
+                                </div>
+                            </div>
+                            
+                            <p>Quantity: {{ item.quantity }} </p>
+                        </div>
+                        {% endfor %}
+                        
+                        <div class="cart-card">
+                            <p class="text-end">Grand Total: <strong>£{{ order.grand_total }}</strong></p>
+                        </div>
+
+                    </div>
                     <p>A confirmation email has been sent to the {{ order.email }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     {% for category in categories %}
-                    <div class="col-12 col-lg-8 offset-lg-2 my-col">
-                        <a href="{% url 'filtered_products' category_id=category.id %}" class="home-links">Shop {{ category.friendly_name }}</a>
+                    <div class="col-12">
+                        <a href="{% url 'filtered_products' category_id=category.id %}" class="btn btn-owery top-margin">Shop {{ category.friendly_name }}</a>
                     </div>
                     {% endfor %}
                 </div>

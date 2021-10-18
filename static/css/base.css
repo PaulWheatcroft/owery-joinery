@@ -52,6 +52,20 @@ h1 {
     background-color: #FFDD8B;
     color: #383533;
 }
+.btn-owery {
+    background-color: #F0AE0E;
+    display: inline-block;
+    color: #383533;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+.btn-owery:hover {
+    background-color: #FFDD8B;
+    color: #383533;
+}
 .my-footer {
     padding-top: 20px;
     padding-bottom: 20px;
