@@ -5,7 +5,23 @@
 {% block head_title %}{% trans "Account Inactive" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col">
+                    <h1>{% trans "Account Inactive" %}</h1>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <p>{% trans "This account is inactive." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 
-<p>{% trans "This account is inactive." %}</p>
+
+
 {% endblock %}

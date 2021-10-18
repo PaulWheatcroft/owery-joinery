@@ -29,6 +29,13 @@ h1 {
 .my-nav {
     background-color: #383533;
 }
+.nav-cart {
+    float: right;
+    color: #f1f1f1;
+}
+.nav-cart a {
+    color: #f1f1f1;
+}
 .home-page {
     height: 100vh;
 }
