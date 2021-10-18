@@ -2,14 +2,15 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top my-nav">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><img src="{{ MEDIA_URL }}owery-menu.png" alt="Owery Joinery"></a>
-            <a class="nav-cart" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <a class="nav-cart-icon" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i><span class="nav-cart-number">{{ total_number_of_items }}</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            
             <div class="collapse text-center navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
+                    <li class="dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Products</a>
                         <ul class="dropdown-menu">
                             {% for category in categories %}
@@ -30,10 +31,13 @@
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Owery</a>
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_cart' %}">Shopping Cart<span class="nav-cart-number">{{ total_number_of_items }}</span></a>
                     </li>
                 </ul>
                 <!--

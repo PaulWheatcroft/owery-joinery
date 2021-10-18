@@ -12,6 +12,7 @@ def contents_of_cart(request):
     delivery = Decimal(10.00)
     grand_total = total + delivery
     cart = request.session.get('cart', {})
+    total_number_of_items = 0
 
     for product_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=product_id)
@@ -23,7 +24,7 @@ def contents_of_cart(request):
             'price': product.price,
             'line_total': line_total,
         })
-
+        total_number_of_items += quantity
         grand_total = grand_total + line_total
 
     context = {
@@ -33,6 +34,7 @@ def contents_of_cart(request):
         'delivery': delivery,
         'grand_total': grand_total,
         'cart': cart,
+        'total_number_of_items': total_number_of_items
     }
 
     return context

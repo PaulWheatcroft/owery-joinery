@@ -29,13 +29,31 @@ h1 {
 .my-nav {
     background-color: #383533;
 }
-.nav-cart {
+.nav-cart-icon {
     float: right;
     color: #f1f1f1;
 }
-.nav-cart a {
-    color: #f1f1f1;
+.nav-cart-icon a {
+    text-decoration: none;
 }
+.nav-cart-text {
+    display: none;
+}
+.nav-cart-number {
+    display: inline-block;
+    background-color: #F0AE0E;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    border-radius: 50%;
+    color: #383533;
+    text-align: center;
+    position: relative;
+    bottom: 10px;
+}
+
 .home-page {
     height: 100vh;
 }
@@ -178,6 +196,12 @@ h1 {
     padding-top: 10px;
 }
 @media (min-width: 992px) {
+    .nav-cart-icon {
+        display: none;
+    }
+    .nav-cart-text {
+        display: list-item;
+    }
     .home-links {
         font-size: 40px;
         padding-left: 20px;
