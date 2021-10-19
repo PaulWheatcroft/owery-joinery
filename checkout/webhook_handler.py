@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .webhooks import webhooks
+from .webhooks import webhook
 
 
 class StripeWH_Handler:
