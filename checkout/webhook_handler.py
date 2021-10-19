@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from .webhooks import webhooks
 
 
-class StripeWebhookHandler:
+class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
     def __init__(self, request):
@@ -16,7 +16,7 @@ class StripeWebhookHandler:
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
-    def payment_successful(self, event):
+    def handle_payment_intent_succeeded(self, event):
         """
         Handle standard response for successful webhook event
         """
@@ -25,9 +25,9 @@ class StripeWebhookHandler:
             status=200)
 
 
-    def payment_failed(self, event):
+    def handle_payment_intent_payment_failed(self, event):
         """
-        Handle standard response for successful webhook event
+        Handle standard response for unsuccessful webhook event
         """
         return HttpResponse(
             content=f'Failed webhook received: {event["type"]}',
