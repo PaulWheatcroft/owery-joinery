@@ -107,8 +107,8 @@ h1 {
 /* Toast */
 .message-container {
     position: fixed;
-    top: 50px;
-    right: 5px;
+    top: 76px;
+    right: 0px;
     z-index: 99999999999;
 }
 .toast-body {
