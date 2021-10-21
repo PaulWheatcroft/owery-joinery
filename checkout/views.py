@@ -6,7 +6,7 @@ from django.conf import settings
 from cart.contexts import contents_of_cart
 
 from .forms import OrderForm
-from .models import OrderLineItems
+from .models import OrderLineItems, Order
 from products.models import Product
 
 import stripe
@@ -50,7 +50,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
             order_items = []
             for product_id, quantity in cart.items():
                 product = Product.objects.get(id=product_id)

@@ -79,6 +79,7 @@
                             <div id="card-errors" role="alert">
 
                             </div>
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
                         <p>Your card will be charged £{{ grand_total | floatformat:2 }}</p>
                         <button type="submit" id="submit-button" class="btn btn-success col-12 col-md-4 margin-top">Complete Order</button>

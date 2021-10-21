@@ -4,6 +4,7 @@ from products.models import Product
 from .models import OrderLineItems
 
 import json
+import time
 
 
 class StripeWH_Handler:
@@ -28,7 +29,7 @@ class StripeWH_Handler:
         pid = intent.id
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
-        
+
         billing_details = intent.charges.data[0].billing_details
         name = billing_details.name
         first_name = name.split(' ', 1)[0]
@@ -42,28 +43,24 @@ class StripeWH_Handler:
                 shipping_details.adress[field] = None
 
         order_exists = False
-        try:
-            order = Order.objects.get(
-                first_name__iexact=first_name,
-                last_name__iexact=last_name,
-                email__iexact=billing_details.email,
-                phone_number__iexact=billing_details.phone,
-                street_address1__iexact=billing_details.address.line1,
-                street_address2__iexact=billing_details.address.line2,
-                town_or_city__iexact=billing_details.address.city,
-                postcode__iexact=billing_details.address.postal_code,
-                county__iexact=billing_details.address.state,
-                country__iexact=billing_details.address.country,
-                grand_total=grand_total,
-                original_cart=cart,
-                stripe_pid=pid,
-            )
-            order_exists = True
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.objects.get(
+                    stripe_pid=pid,
+                    )
+                order_exists = True
+                break
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        if order_exists:
             return HttpResponse(
                 content=f'webhook received: {event["type"]} | SUCCESS\
                     : Verified order already in database',
                 status=200)
-        except Order.DoesNotExist:
+        else:
+            order = None
             try:
                 order = Order.objects.create(
                     first_name=first_name,
