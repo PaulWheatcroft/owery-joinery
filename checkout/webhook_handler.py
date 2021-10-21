@@ -49,6 +49,7 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     stripe_pid=pid,
                     )
+                print(f'*** {order} ***')
                 order_exists = True
                 break
             except Order.DoesNotExist:
