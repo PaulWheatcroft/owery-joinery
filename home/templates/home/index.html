@@ -16,7 +16,7 @@
                                 <p>{{ category.headline }}</p>
                                 <a href="{% url 'filtered_products' category_id=category.id %}" class="btn btn-sm btn-primary">Shop Now</a>
                             </div>
-                            <div class="col home-link-image">
+                            <div class="col home-link-image" style="background-image: url({{ category.image.url }}); background-position: center; background-size: cover;">
                             </div>    
                         </div>
                     </div>
