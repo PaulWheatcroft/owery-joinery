@@ -3,12 +3,28 @@
 
 {% block content %}
     <div class="container-fluid my-container">
-        <div class="row home-page align-items-center my-row">
-            {% for category in categories %}
-            <div class="col-12 col-md-8 offset-md-1 col-lg-8 offset-lg-2 my-col">
-                <a href="{% url 'filtered_products' category_id=category.id %}" class="home-links">Shop {{ category.friendly_name }} </a>
+        <div class="row home-page my-row align-items-center ">
+            <div class="col-12 col-md-8 offset-md-2">
+                <h1>Created just for you</h1>
+                
+                <div class="row justify-content-around">                    
+                    {% for category in categories %}
+                    <div class="col-12 col-md-4 home-links">
+                        <div class="row">
+                            <div class="col-8">
+                                <h3>{{ category.friendly_name }}</h3>
+                                <p>{{ category.headline }}</p>
+                                <a href="{% url 'filtered_products' category_id=category.id %}" class="btn btn-sm btn-primary">Shop Now</a>
+                            </div>
+                            <div class="col home-link-image">
+                            </div>    
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <h4 class="text-center">Bespoke, handcrafted kitchens & furniture</h4>
+                </div>
             </div>
-            {% endfor %}
+            
             
         </div>
     </div>
