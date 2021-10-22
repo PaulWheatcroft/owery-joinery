@@ -1,6 +1,6 @@
 from django import forms
-from .models import AdditionalUserDetails
 from allauth.account.forms import SignupForm
+from .models import AdditionalUserDetails
 
 
 class AddtionalDetails(forms.ModelForm):
@@ -9,7 +9,7 @@ class AddtionalDetails(forms.ModelForm):
     """
     class Meta:
         model = AdditionalUserDetails
-        fields = ('phone_number', 'random_field',)
+        fields = ('phone_number',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -19,7 +19,6 @@ class AddtionalDetails(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'phone_number': 'Phone Number',
-            'random_field': 'random_field',
         }
 
         for field in self.fields:
