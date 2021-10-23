@@ -1,10 +1,9 @@
+import json
+import time
 from django.http import HttpResponse
 from .models import Order
 from products.models import Product
 from .models import OrderLineItems
-
-import json
-import time
 
 
 class StripeWH_Handler:
@@ -28,7 +27,7 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         cart = intent.metadata.cart
-        save_info = intent.metadata.save_info
+        username = intent.metadata.username
 
         billing_details = intent.charges.data[0].billing_details
         name = billing_details.name
@@ -88,6 +87,10 @@ class StripeWH_Handler:
                     )
                     order_items.append(order_line_items)
                     order_line_items.save()
+                if username:
+                    # Attach the user's profile to the order
+                    order.user_profile = username
+                    order.save()
             except Exception as e:
                 if order:
                     order.delete()
