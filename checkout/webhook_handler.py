@@ -74,6 +74,7 @@ class StripeWH_Handler:
                     country=billing_details.address.country,
                     original_cart=cart,
                     stripe_pid=pid,
+                    delivery=10
                 )
                 order.save()
                 order_items = []
