@@ -18,6 +18,10 @@ class UserProfile(models.Model):
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
+    sender = django.contrib.auth.models.User
+    instance = model that sent the signal
+    created = boolean as to whether this is new or be updated
+    and any key work args
     Create or update the user profile
     """
     if created:

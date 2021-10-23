@@ -3,11 +3,12 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from cart.contexts import contents_of_cart
 
+from cart.contexts import contents_of_cart
 from .forms import OrderForm
 from .models import OrderLineItems, Order
 from products.models import Product
+from profiles.models import UserProfile
 
 import stripe
 
@@ -37,7 +38,6 @@ def checkout(request):
         cart = request.session.get('cart', {})
 
         form_data = {
-            'user': request.POST['user-id'],
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
             'email': request.POST['email'],
@@ -66,6 +66,11 @@ def checkout(request):
                 )
                 order_items.append(order_line_items)
                 order_line_items.save()
+            if request.user.is_authenticated:
+                profile = UserProfile.objects.get(user=request.user)
+                # Attach the user's profile to the order
+                order.user_profile = profile
+                order.save()
 
         context = {
             'order': order,
