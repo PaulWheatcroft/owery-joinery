@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-10 offset-md-1">
+
+        {% for detail in order %}
+            <h1>Order: {{ detail.order_number }}</h1>
+            {{ detail.grand_total }}
+        {% endfor %}
+          
+        {% for item in line_items %}
+            {{ item.product.name }}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

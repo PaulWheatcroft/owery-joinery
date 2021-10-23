@@ -8,21 +8,59 @@
             <div class="row">
                 <div class="col">
                     <h1>Profile</h1>
+                    <h3>Orders for {{ logged_in_profile }}</h3>
                 </div>
             </div>
-            <!---
+
             {% if user.is_authenticated %}
-            <div class="row">
-                {{ user.username }}
-                {{ user.first_name }}
-                {{ user.last_name }}
-            </div>
+                {% if orders %}
+                <div class="row">
+                            
+                    <div class="col-4 col-md-3">
+                        <p>Order Number</p>
+                    </div>
+                    <div class="col-4 col-md-3">
+                        <p>Order Date</p>
+                    </div>
+                    <div class="col-4 col-md-3">
+                        <p>Total</p>
+                    </div>
+                    <div class="col-12 col-md-3">
+
+                    </div>
+                
+                </div>
+                {% for order in orders %}
+                    <div class="row">
+                        
+                        <div class="col-4 col-md-3">
+                            <p>{{ order.order_number }}</p>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <p>{{ order.date|date:"d M y" }}</p>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <p>{{ order.grand_total }}</p>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a href="{% url 'view_order' order.order_number %}" class="btn btn-sm col-12 btn-primary">View Order</a>
+                        </div>
+                    
+                    </div>
+                    <hr>
+                {% endfor %}
+                {% else %}
+                <div class="row">
+                            
+                    <p>You do not have any orders</p>
+                
+                </div>
+                {% endif %}
             {% else %}
             <div class="row">
                 You don't have a profile
             </div>
             {% endif %}
-            -->
         </div>
     </div>
 </div>
