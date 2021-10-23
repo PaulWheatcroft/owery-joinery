@@ -21,14 +21,16 @@
                                     <p><strong>{{ item.product.name }}</strong></p>
                                 </div>
                                 <div class="col-3">
-                                    <p>Price: £{{ item.product.price }}</p>
+                                    <p class="text-end">Price: £{{ item.product.price }}</p>
                                 </div>
                             </div>
                             
                             <p>Quantity: {{ item.quantity }} </p>
                         </div>
                         {% endfor %}
-                        
+                        <div class="cart-card">
+                            <p class="text-end">Deliveryl: <strong>£{{ delivery }}</strong></p>
+                        </div>
                         <div class="cart-card">
                             <p class="text-end">Grand Total: <strong>£{{ order.grand_total }}</strong></p>
                         </div>

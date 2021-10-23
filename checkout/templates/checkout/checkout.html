@@ -17,22 +17,24 @@
                     {% for item in cart_items %}
                     <div class="order-summary-card">
                         <div class="row">
-                            <div class="col-9 col-md-10">
+                            <div class="col-9 col-md-9">
                                 <p><strong>{{ item.product.name }}</strong></p>
                             </div>
-                            <div class="col-3 col-md-2">
-                                <p>Price: £{{ item.line_total }}</p>
+                            <div class="col-3 col-md-3">
+                                <p class="text-end">Price: £{{ item.line_total }}</p>
                             </div>
                         </div>
                         
                         <p>Quantity: {{ item.quantity }} </p>
                     </div>
                     {% endfor %}
-                    
+                    <div class="cart-card">
+                        <p class="text-end">Delivery: <strong>£{{ delivery }}</strong></p>
+                    </div>
                     <div class="cart-card">
                         <p class="text-end">Grand Total: <strong>£{{ grand_total }}</strong></p>
                     </div>
-                    <a href="{% url 'view_cart' %}" class="btn btn-primary col-12 col-md-4 margin-top">Amend Cart</a>
+                    <a href="{% url 'view_cart' %}" class="btn btn-primary col-12 col-md-6 margin-top">Amend Cart</a>
                 </div>
                 <div class="col-12 col-lg-6 offset-lg-1">
                     <p class="text-center">Please complete the form below</p>
@@ -58,8 +60,8 @@
                                 <input type="hidden" id="user-id" name="user-id" value="{{ user.id }}">
                                 {% else %}
                                 <label class="form-check-label" for="id-save-info">
-                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this
+                                    <a class="text-info btn btn-small btn-primary" href="{% url 'account_signup' %}">Create an account</a> or
+                                    <a class="text-info btn btn-small btn-success" href="{% url 'account_login' %}">login</a> to save this
                                     information
                                 </label>
                                 {% endif %}
@@ -79,7 +81,7 @@
                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
                         </fieldset>
                         <p>Your card will be charged £{{ grand_total | floatformat:2 }}</p>
-                        <button type="submit" id="submit-button" class="btn btn-success col-12 col-md-4 margin-top">Complete Order</button>
+                        <button type="submit" id="submit-button" class="btn btn-success col-12 col-md-6 margin-top">Complete Order</button>
                         
 
                     </form>
