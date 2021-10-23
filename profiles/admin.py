@@ -4,11 +4,9 @@ from .models import UserProfile
 
 class ProfileAdmin(admin.ModelAdmin):
 
-    readonly_fields = ('user_profile',)
+    fields = ('user', 'profile_phone_number')
 
-    fields = ('user_profile', 'profile_phone_number')
-
-    list_display = ('user_profile', 'profile_phone_number')
+    list_display = ('user', 'profile_phone_number')
 
 
 admin.site.register(UserProfile, ProfileAdmin)
