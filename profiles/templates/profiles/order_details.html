@@ -8,9 +8,23 @@
         <div class="col-12 col-md-8 offset-md-2">
 
         {% for detail in order %}
-            <h1>Order: {{ detail.order_number }}</h1>
-            <h3 class="text-center">Total: {{ detail.grand_total }}</h3>
-            <hr>
+            <h1>Order Details </h1></span>
+           
+            <h3 class="text-center"></h3>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">Order Number: {{ detail.order_number }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="text-center">Order Date: {{ detail.date }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="text-center">Delivery Cost: £{{ delivery }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="text-center">Order Total: £{{ detail.grand_total }}</p>
+                </div>
+            </div>
         {% endfor %}
           
         
@@ -41,7 +55,11 @@
             
         {% endfor %}
         </div>
+        <div class="col-12 col-md-8 offset-md-2">
+            <a href="{% url 'profile' %}" class="btn btn-primary">Back to Profile</a>
+        </div>
     </div>
+    
 </div>
 
 {% endblock %}

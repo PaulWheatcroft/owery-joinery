@@ -6,21 +6,22 @@
     <div class="row my-row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="row">
-                <div class="col">
+                <div class="col-12">
                     <h1>Profile</h1>
-                    <h3>Orders for {{ logged_in_profile }}</h3>
+                </div>
+                <div class="col-12">
+                    <h3 class="text-center">Orders for {{ logged_in_profile }}</h3>
                 </div>
             </div>
-
             {% if user.is_authenticated %}
                 {% if orders %}
                 <div class="row">
                             
                     <div class="col-4 col-md-3">
-                        <p>Order Number</p>
+                        <p>Order</p>
                     </div>
                     <div class="col-4 col-md-3">
-                        <p>Order Date</p>
+                        <p>Date</p>
                     </div>
                     <div class="col-4 col-md-3">
                         <p>Total</p>
@@ -43,7 +44,7 @@
                             <p>{{ order.grand_total }}</p>
                         </div>
                         <div class="col-12 col-md-3">
-                            <a href="{% url 'view_order' order.order_number %}" class="btn btn-sm col-12 btn-primary">View Order</a>
+                            <a href="{% url 'view_order' order.order_number %}" class="btn col-12 btn-primary">View Order</a>
                         </div>
                     
                     </div>

@@ -19,6 +19,7 @@ h1 {
 .row {
     --bs-gutter-x: 0;
 }
+
 .my-container {
     background: url('/media/pilton.jpg');
     background-position: center;
@@ -61,11 +62,11 @@ h1 {
 }
 .home-page h1 {
     color: #f1f1f1;
-    text-shadow: 1px 2px 2px rgb(121, 121, 121);
+    text-shadow: 1px 2px 2px rgba(70, 70, 70, 0.5);
 }
 .home-page h4 {
     color: #f1f1f1;
-    text-shadow: 1px 2px 2px rgb(121, 121, 121);;
+    text-shadow: 1px 2px 2px rgb(70, 70, 70, 0.5);
 }
 .home-links {
     background-color: #F0AE0E;
@@ -126,8 +127,7 @@ h1 {
 /* Toast */
 .message-container {
     position: fixed;
-    top: 76px;
-    right: 0px;
+    top: 66px;
     z-index: 99999999999;
 }
 .toast-body {
