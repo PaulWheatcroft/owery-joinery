@@ -102,6 +102,7 @@ h1 {
     background-color: #F0AE0E;
     display: inline-block;
     color: #383533;
+    border: 1px solid #F0AE0E;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
