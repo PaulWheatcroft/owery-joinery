@@ -79,7 +79,7 @@ h1 {
     max-width: 320px;
     min-width: 320px;
     transition: background-color 0.5s ease;
-    box-shadow: 1px 2px 2px rgb(121, 121, 121);
+    box-shadow: 1px 2px 2px rgb(70, 70, 70, 0.5);
 }
 .home-links h3 {
     font-size: 18px;
@@ -140,6 +140,7 @@ h1 {
     max-width: 400px;
     border-radius: 5px;
     margin-bottom: 20px;
+    box-shadow: 1px 2px 2px rgb(70, 70, 70, 0.5);
 }
 .product p {
     font-size: 13px;
@@ -189,14 +190,9 @@ h1 {
 .order-summary {
     font-size: 11px;
 }
-.cart-card {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #383533;
-}
 .order-summary-card {
     font-size: 11px;
     margin-bottom: 5px;
-    border-bottom: 1px solid #383533;
 }
 .order-summary-card p {
     margin-bottom: 5px;
