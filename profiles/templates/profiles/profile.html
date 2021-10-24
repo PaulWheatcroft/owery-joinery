@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row my-row">
-        <div class="col-12 col-md-6 offset-md-3">
+        <div class="col-12 col-md-8 offset-md-2">
             <div class="row">
                 <div class="col-12">
                     <h1>Profile</h1>
@@ -16,39 +16,42 @@
             {% if user.is_authenticated %}
                 {% if orders %}
                 <div class="row">
-                            
-                    <div class="col-4 col-md-3">
+                    <div class="col col-md-3 desktop-visibility">
                         <p>Order</p>
                     </div>
-                    <div class="col-4 col-md-3">
+                    <div class="col col-md-2 desktop-visibility">
                         <p>Date</p>
                     </div>
-                    <div class="col-4 col-md-3">
+                    <div class="col col-md-2 desktop-visibility">
                         <p>Total</p>
                     </div>
-                    <div class="col-12 col-md-3">
+                    <div class="col col-md-3 desktop-visibility">
+                        <p>Status</p>
+                    </div>
+                    <div class="col col-md-2 desktop-visibility">
 
                     </div>
-                
                 </div>
                 {% for order in orders %}
-                    <div class="row">
-                        
-                        <div class="col-4 col-md-3">
-                            <p>{{ order.order_number }}</p>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <p>{{ order.date|date:"d M y" }}</p>
-                        </div>
-                        <div class="col-4 col-md-3">
-                            <p>{{ order.grand_total }}</p>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <a href="{% url 'view_order' order.order_number %}" class="btn col-12 btn-primary">View Order</a>
-                        </div>
-                    
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <p><span class="mobile-visibility">Order:</span> {{ order.order_number }}</p>
                     </div>
-                    <hr>
+                    <div class="col-12 col-md-2">
+                        <p><span class="mobile-visibility">Date:</span> {{ order.date|date:"d M y" }}</p>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <p><span class="mobile-visibility">Total:</span> {{ order.grand_total }}</p>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <p><span class="mobile-visibility">Status:</span> {{ order.status }}</p>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <a href="{% url 'view_order' order.order_number %}" class="btn col-12 btn-primary">View
+                            Order</a>
+                    </div>
+                </div>
+                <hr>
                 {% endfor %}
                 {% else %}
                 <div class="row">

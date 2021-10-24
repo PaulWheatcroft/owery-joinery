@@ -19,7 +19,12 @@ h1 {
 .row {
     --bs-gutter-x: 0;
 }
-
+.desktop-visibility {
+    display: none;
+}
+.mobile-visibility {
+    display: inline;
+}
 .my-container {
     background: url('/media/pilton.jpg');
     background-position: center;
@@ -229,6 +234,12 @@ h1 {
     height: 100%;
 }
 @media (min-width: 992px) {
+    .desktop-visibility {
+        display: inline;
+    }
+    .mobile-visibility {
+        display: none;
+    }
     .nav-cart-icon {
         display: none;
     }

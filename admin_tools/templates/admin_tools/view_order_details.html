@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-8 offset-md-2">
+
+        {% for detail in order %}
+        <div class="row">
+            <h1>Order Details </h1></span>
+           
+            <h3 class="text-center"></h3>
+            <div class="row">
+                <div class="col">
+                    <div class="col-12">
+                        <p class="text-center">Order Number: {{ detail.order_number }}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-center">Order Date: {{ detail.date }}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-center">Delivery Cost: £{{ delivery }}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="text-center">Order Total: £{{ detail.grand_total }}</p>
+                    </div>
+                </div>
+                <div class="col">
+
+                        <p class="">{{ detail.first_name }} {{ detail.last_name }}<br>
+                        {{ detail.street_address1 }}<br>
+                        {% if detail.street_address2 %}
+                        {{ detail.street_address2 }}<br>
+                        {% endif %}
+                        {{ detail.town_or_city }}<br>
+                        {{ detail.postcode }}<br>
+                        {{ detail.county }}<br>
+                        {{ detail.country }}<br>
+                        </p>
+
+                </div>
+                <div class="col">
+
+                </div>          
+            </div>
+
+        </div>            
+        {% endfor %}
+          
+        
+        <div class="row">
+            <div class="col-6">
+                <p>Product Name</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center">Quantity</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center">Totals</p>
+            </div>
+        </div>
+        {% for item in line_items %}
+        <div class="row">
+            <div class="col-6">
+                <p>{{ item.product.name }}</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center">{{ item.quantity }}</p>
+            </div>
+            <div class="col-3">
+                <p class="text-center">£{{ item.lineitem_total }}</p>
+            </div>
+        </div>
+        <hr>
+            
+        {% endfor %}
+        </div>
+        <div class="col-12 col-md-8 offset-md-2">
+            <a href="{% url 'profile' %}" class="btn btn-primary">Back to Profile</a>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
