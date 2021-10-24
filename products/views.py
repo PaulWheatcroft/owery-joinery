@@ -45,3 +45,10 @@ def product_details(request, product_id):
     }
 
     return render(request, 'products/product-details.html', context)
+
+
+def add_product(request):
+    """
+    A view to add a product
+    """
+    return render(request, 'products/add-product.html')

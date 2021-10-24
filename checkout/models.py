@@ -14,8 +14,10 @@ class OrderStatus(models.Model):
         Fix django default addition of 's' for plural
         """
         verbose_name_plural = 'Order Status'
+
     status_id = models.SmallIntegerField(null=False, blank=False)
-    status_name = models.CharField(max_length=20, null=False, blank=False)
+    status_name = models.CharField(
+        max_length=20, null=False, blank=False)
     status_description = models.TextField()
 
     def __str__(self):
@@ -66,6 +68,7 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
+
 
     def update_total(self):
         """
