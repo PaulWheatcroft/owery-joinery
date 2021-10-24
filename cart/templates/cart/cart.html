@@ -12,12 +12,11 @@
                     {% if cart_items %}
 
                     {% for item in cart_items %}
-                    <div class="cart-card">
                         <form action="{% url 'amend_cart' item.product.id %}" method="POST">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-12 col-lg-6">
-                                    <p><strong>{{ item.product.name }}</strong></p>
+                                    <p>{{ item.product.name }}</p>
                                 </div>
                                 <div class="col cart-text-pading">
                                     <p style="padding-top: 3px;">Quantity:</p>
@@ -41,20 +40,19 @@
                                 <p>Product total: £{{ item.line_total }}</p>
                             </div>
                         </div>
+                        <hr>
                         
-                        
-                    </div>
                     {% endfor %}
                     <div class="card cart-total">
 
                             <div class="row">
                                 <div class="col text-end">
-                                    <p>Delivery £{{ delivery }}</p>
+                                    <p>Delivery <strong>£{{ delivery }}</strong></p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col text-end">
-                                    <p>Total £{{ grand_total }}</p>
+                                    <p>Total <strong>£{{ grand_total }}</strong></p>
                                 </div>
                             </div>
                             <div class="row">
