@@ -8,11 +8,28 @@ from products.models import Product
 from profiles.models import UserProfile
 
 
+class OrderStatus(models.Model):
+    class Meta:
+        """
+        Fix django default addition of 's' for plural
+        """
+        verbose_name_plural = 'Order Status'
+    status_id = models.SmallIntegerField(null=False, blank=False)
+    status_name = models.CharField(max_length=20, null=False, blank=False)
+    status_description = models.TextField()
+
+    def __str__(self):
+        return self.status_name
+
+
 class Order(models.Model):
     order_number = models.CharField(max_length=10, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
                                      related_name='orders')
+    status = models.ForeignKey(OrderStatus, null=True, blank=True,
+                               on_delete=models.CASCADE, related_name='status',
+                               default='1')
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
