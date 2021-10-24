@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import Product, Category
+from .forms import AddProductForm
 
 
 # Create your views here.
@@ -51,4 +53,22 @@ def add_product(request):
     """
     A view to add a product
     """
-    return render(request, 'products/add-product.html')
+    if request.method == 'POST':
+        form = AddProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        messages.success(request, 'Succesfully added a new product')
+        form = AddProductForm()
+
+        context = {
+            'form': form,
+        }
+
+        return render(request, 'products/add-product.html', context)
+    form = AddProductForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'products/add-product.html', context)
