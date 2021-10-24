@@ -14,21 +14,16 @@
             <h3 class="text-center"></h3>
             <div class="row">
                 <div class="col">
-                    <div class="col-12">
-                        <p class="text-center">Order Number: {{ detail.order_number }}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="text-center">Order Date: {{ detail.date }}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="text-center">Delivery Cost: £{{ delivery }}</p>
-                    </div>
-                    <div class="col-12">
-                        <p class="text-center">Order Total: £{{ detail.grand_total }}</p>
-                    </div>
+                    <h6>Order Summary</h6>
+                    <p>
+                    Order Number: {{ detail.order_number }}<br>
+                    Order Date: {{ detail.date }}<br>
+                    Delivery Cost: £{{ delivery }}<br>
+                    Order Total: £{{ detail.grand_total }}<br>
+                    </p>                 
                 </div>
                 <div class="col">
-
+                        <h6>Customer Details</h6>
                         <p class="">{{ detail.first_name }} {{ detail.last_name }}<br>
                         {{ detail.street_address1 }}<br>
                         {% if detail.street_address2 %}
@@ -42,7 +37,11 @@
 
                 </div>
                 <div class="col">
-
+                    <form action="#" method="POST" id="update-status-form">
+                        {% csrf_token %}
+                        {{ order_status_form | crispy }}
+                        <button type="submit" id="update-status-form-submit" class="btn btn-success col-12 col-md-6 margin-top">Update Status</button>
+                    </form>
                 </div>          
             </div>
 
