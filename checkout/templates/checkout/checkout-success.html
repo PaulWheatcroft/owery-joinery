@@ -10,7 +10,7 @@
                     <h1>Order Confirmation</h1>
                 </div>
             </div>
-            <div class="row">                
+            <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
                     <p>Thank you for your order {{ order }}</p>
                     <div class="col-12">
@@ -24,7 +24,7 @@
                                     <p class="text-end">Price: £{{ item.product.price }}</p>
                                 </div>
                             </div>
-                            
+
                             <p>Quantity: {{ item.quantity }} </p>
                         </div>
                         {% endfor %}
@@ -44,10 +44,12 @@
 
                     <div class="col-12 col-md-6 offset-md-3">
                         {% for category in categories %}
-                        <a href="{% url 'filtered_products' category_id=category.id %}" class="btn btn-owery top-margin">Shop {{ category.friendly_name }} <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{% url 'filtered_products' category_id=category.id %}"
+                            class="btn btn-owery top-margin">Shop {{ category.friendly_name }} <i
+                                class="fas fa-arrow-circle-right"></i></a>
                         {% endfor %}
                     </div>
-                   
+
                 </div>
             </div>
         </div>

@@ -12,62 +12,72 @@
                     {% if cart_items %}
 
                     {% for item in cart_items %}
-                        <form action="{% url 'amend_cart' item.product.id %}" method="POST">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-12 col-lg-6">
-                                    <p>{{ item.product.name }}</p>
-                                </div>
-                                <div class="col cart-text-pading">
-                                    <p style="padding-top: 3px;">Quantity:</p>
-                                </div>
-                                <div class="col">
-                                    <input class="product-quantity" type="number" name="quantity"
-                                        value="{{ item.quantity }}" min="1" max="50" data-item_id="{{ item.id }}"
-                                        id="id_qty_{{ item.id }}" style="width: 50px;">
-                                </div>
-                                <div class="col">
-                                    <input type="submit" class="btn btn-sm btn-primary" value="Update">
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                </div>
-                                <div class="col">
-                                    <a href="{% url 'remove_product_from_cart' item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
-                                </div>
-                            </div>
-                        </form> 
+                    <form action="{% url 'amend_cart' item.product.id %}" method="POST">
+                        {% csrf_token %}
                         <div class="row">
-                            <div class="col text-end">
-                                <p>Product total: £{{ item.line_total }}</p>
+                            <div class="col-12 col-lg-6">
+                                <p>{{ item.product.name }}</p>
+                            </div>
+                            <div class="col cart-text-pading">
+                                <p style="padding-top: 3px;">Quantity:</p>
+                            </div>
+                            <div class="col">
+                                <input class="product-quantity" type="number" name="quantity"
+                                    value="{{ item.quantity }}" min="1" max="50" data-item_id="{{ item.id }}"
+                                    id="id_qty_{{ item.id }}" style="width: 50px;">
+                            </div>
+                            <div class="col">
+                                <input type="submit" class="btn btn-sm btn-primary" value="Update">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'remove_product_from_cart' item.product.id %}"
+                                    class="btn btn-sm btn-danger">Remove</a>
                             </div>
                         </div>
-                        <hr>
-                        
+                    </form>
+                    <div class="row">
+                        <div class="col text-end">
+                            <p>Product total: £{{ item.line_total }}</p>
+                        </div>
+                    </div>
+                    <hr>
+
                     {% endfor %}
                     <div class="card cart-total">
 
-                            <div class="row">
-                                <div class="col text-end">
-                                    <p>Delivery <strong>£{{ delivery }}</strong></p>
-                                </div>
+                        <div class="row">
+                            <div class="col text-end">
+                                <p>Delivery <strong>£{{ delivery }}</strong></p>
                             </div>
-                            <div class="row">
-                                <div class="col text-end">
-                                    <p>Total <strong>£{{ grand_total }}</strong></p>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-end">
+                                <p>Total <strong>£{{ grand_total }}</strong></p>
                             </div>
-                            <div class="row">
-                                <div class="col text-end">
-                                    <a href="{% url 'checkout' %}" class="btn btn-primary">Check Out</a>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-end">
+                                <a href="{% url 'checkout' %}" class="btn btn-primary">Check Out</a>
                             </div>
-                            
+                        </div>
 
                     </div>
-                        {% else %}
-                        <p>Your cart is empty</p>
-                        <a href="{% url 'products' %}">Go to Products</a>
-                        {% endif %}
-                    
+                    {% else %}
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 offset-md-3">
+                            <h4 class="text-center">Your cart is empty</h4>
+                            {% for category in categories %}
+                            <a href="{% url 'filtered_products' category_id=category.id %}"
+                                class="btn btn-owery top-margin">Shop {{ category.friendly_name }} <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    {% endif %}
+
                 </div>
 
             </div>

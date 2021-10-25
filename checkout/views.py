@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
 
 import stripe
 
@@ -35,11 +36,11 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-
+        email = request.POST['email']
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
-            'email': request.POST['email'],
+            'email': email,
             'phone_number': request.POST['phone_number'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
@@ -70,6 +71,10 @@ def checkout(request):
                 # Attach the user's profile to the order
                 order.user_profile = profile
                 order.save()
+        
+        send_mail('Confirmation Of Order', 'This is to confirm order:'
+                  f'{order.order_number}',
+                  settings.EMAIL_HOST_USER, [email],)
 
         context = {
             'order': order,
