@@ -88,6 +88,7 @@ def edit_product(request, product_id):
         messages.success(request, 'Succesfully amended the product')
         context = {
             'form': form,
+            'edit_product_details': edit_product_details,
         }
 
         return render(request, 'products/edit-product.html', context)

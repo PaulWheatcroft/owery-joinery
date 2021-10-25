@@ -1,4 +1,7 @@
 # Owery Joinery
 
+# Future Improvements
+- Print button captures the whole window. This could be made much neater
+
 # Acknowledgements
-https://www.geeksforgeeks.org/python-extending-and-customizing-django-allauth/
+
