@@ -29,8 +29,8 @@ class Order(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
                                      related_name='orders')
-    status = models.ForeignKey(OrderStatus, null=True, blank=True,
-                               on_delete=models.CASCADE, related_name='status',
+    status = models.ForeignKey('OrderStatus', null=True, blank=True,
+                               on_delete=models.SET_NULL, related_name='status',
                                default='1')
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)

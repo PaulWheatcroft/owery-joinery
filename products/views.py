@@ -108,6 +108,7 @@ def delete_product(request, product_id):
     A view to delete a product
     """
     delete_product_details = get_object_or_404(Product, id=product_id)
+    category = Category.objects.get(name=delete_product_details.category)
     delete_product_details.delete()
     messages.success(request, 'Succesfully deleted the product')
-    return redirect('products')
+    return redirect('filtered_products', category.id)
