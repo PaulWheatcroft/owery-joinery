@@ -5,8 +5,11 @@
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-10 offset-md-1">
-
+            {% if category %}
             <h1>{{ category.friendly_name }}</h1>
+            {% else %}
+            <h1>All Products</h1>
+            {% endif %}
 
             <div class="row justify-content-around">
                 {% for product in products %}
@@ -19,8 +22,9 @@
 
 
                     <div class="row product-details">
-                        {% if product.image.url %}
-                        <div class="col-4" style="background-image: url({{ product.image.url }}); background-position: center; background-size: cover;"></div>
+                        {% if product.image %}
+                        <div class="col-4" style="background-image: url({{ product.image.url }}); background-position: center; background-size: cover;">
+                        </div>
                         {% else %}
                         <div class="col-4" style="background-color:azure;">
                         </div>
@@ -42,10 +46,16 @@
                                 <p>Select Quantity <input class="product-quantity" type="number" name="quantity" value="1" min="1" max="50"
                                     data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" style="width: 50px;"></p>  
                             </div>
+                            {% if user.is_staff %}
+                            <div class="col-12">
+                                <a href="{% url 'edit_product' product.id %}" class="btn product-add-to-cart col-12">Edit</a>
+                            </div>
+                            {% else %}
                             <div class="col-12">
                                 <input type="submit" class="btn product-add-to-cart col-12" value="Add to Cart">
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
+                            {% endif %}
                         </div>
                     </form>
                 </div>

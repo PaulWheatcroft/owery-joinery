@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import Product, Category
 from .forms import AddProductForm
@@ -65,6 +65,7 @@ def add_product(request):
         }
 
         return render(request, 'products/add-product.html', context)
+
     form = AddProductForm()
 
     context = {
@@ -72,3 +73,32 @@ def add_product(request):
     }
 
     return render(request, 'products/add-product.html', context)
+
+
+def edit_product(request, product_id):
+    """
+    A view to add a product
+    """
+    if request.method == 'POST':
+        form = AddProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        messages.success(request, 'Succesfully amended the product')
+
+        context = {
+            'form': form,
+        }
+
+        return render(request, 'products/edit-product.html', context)
+
+    print(product_id)
+    edit_product_details = get_object_or_404(Product, id=product_id)
+    print(edit_product_details)
+    form = AddProductForm(instance=edit_product_details)
+
+    context = {
+        'form': form,
+        'edit_product_details': edit_product_details
+    }
+
+    return render(request, 'products/edit-product.html', context)

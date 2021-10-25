@@ -9,5 +9,5 @@ class AddProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('category', 'style', 'name',
-                  'sku', 'description',
+                  'sku', 'description', 'is_offer', 'is_discontinued',
                   'price', 'height', 'width', 'image')

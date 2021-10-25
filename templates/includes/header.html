@@ -17,11 +17,15 @@
                                 <li><a href="{% url 'filtered_products' category_id=category.id %}" class="dropdown-item">{{ category.friendly_name }}</a></li>
                             {% endfor %}                  
                         </ul>
-                      </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kitchens</a>
                     </li>
-                   
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin Tools</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'get_all_orders' %}" class="dropdown-item">Orders</a></li>
+                            <li><a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a></li>
+                            <li><a href="{% url 'products' %}" class="dropdown-item">Edit Products</a></li>               
+                        </ul>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
@@ -48,14 +52,7 @@
                         <a class="nav-link" href="{% url 'view_cart' %}">Shopping Cart<span class="nav-cart-number">{{ total_number_of_items }}</span></a>
                     </li>
                 </ul>
-                <!--
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                 -->
-            </div>
-            
+            </div>            
         </div>
     </nav>
 </header>
