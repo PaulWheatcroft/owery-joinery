@@ -12,6 +12,7 @@
                         {% csrf_token %}
                         {{ form | crispy }}
                         <button type="submit" class="btn btn-primary top-margin">Edit Product</button>
+                        <a href="{% url 'delete_product' edit_product_details.id %}" class="btn btn-danger top-margin">Delete Product</a>
                     </form>
                 </div>
             </div>

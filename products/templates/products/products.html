@@ -26,7 +26,7 @@
                         <div class="col-4" style="background-image: url({{ product.image.url }}); background-position: center; background-size: cover;">
                         </div>
                         {% else %}
-                        <div class="col-4" style="background-color:azure;">
+                        <div class="col-4" style="background-image: url({{ MEDIA_URL }}no-image-found.png); background-position: center; background-size: cover;">
                         </div>
                         {% endif %}
                         <div class="col-8">
