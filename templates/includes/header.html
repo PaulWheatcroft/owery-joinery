@@ -18,6 +18,7 @@
                             {% endfor %}                  
                         </ul>
                     </li>
+                    {% if user.is_staff %}
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin Tools</a>
                         <ul class="dropdown-menu">
@@ -26,6 +27,7 @@
                             <li><a href="{% url 'products' %}" class="dropdown-item">Edit Products</a></li>               
                         </ul>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>

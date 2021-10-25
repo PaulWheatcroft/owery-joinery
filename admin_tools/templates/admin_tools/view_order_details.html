@@ -2,90 +2,92 @@
 {% load static %}
 
 {% block content %}
-
+{% if user.is_staff %}
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-6 offset-md-3">
-
-        {% for detail in order %}
-        <div class="row">
-            <h1>Order Details </h1></span>
-           
-            <h3 class="text-center"></h3>
+            {% for detail in order %}
             <div class="row">
-                <div class="col-12 col-md-4">
-                    <h6>Order Summary</h6>
-                    <p>
-                    Order Number: {{ detail.order_number }}<br>
-                    Order Date: {{ detail.date }}<br>
-                    Delivery Cost: £{{ delivery }}<br>
-                    Order Total: £{{ detail.grand_total }}<br>
-                    </p>                 
-                </div>
-                <div class="col-12 col-md-4">
+                <h1>Order Details </h1></span>
+                <h3 class="text-center"></h3>
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <h6>Order Summary</h6>
+                        <p>
+                            Order Number: {{ detail.order_number }}<br>
+                            Order Date: {{ detail.date }}<br>
+                            Delivery Cost: £{{ delivery }}<br>
+                            Order Total: £{{ detail.grand_total }}<br>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-4">
                         <h6>Customer Details</h6>
                         <p class="">{{ detail.first_name }} {{ detail.last_name }}<br>
-                        {{ detail.street_address1 }}<br>
-                        {% if detail.street_address2 %}
-                        {{ detail.street_address2 }}<br>
-                        {% endif %}
-                        {{ detail.town_or_city }}<br>
-                        {{ detail.postcode }}<br>
-                        {{ detail.county }}<br>
-                        {{ detail.country }}<br>
+                            {{ detail.street_address1 }}<br>
+                            {% if detail.street_address2 %}
+                            {{ detail.street_address2 }}<br>
+                            {% endif %}
+                            {{ detail.town_or_city }}<br>
+                            {{ detail.postcode }}<br>
+                            {{ detail.county }}<br>
+                            {{ detail.country }}<br>
                         </p>
-
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <form action="#" method="POST" name="update-status-form">
+                            {% csrf_token %}
+                            {{ order_status_form | crispy }}
+                            <button type="submit" id="update-status-form-submit"
+                                class="btn btn-success col-12 col-md-6 top-margin">Update Status</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <form action="#" method="POST" name="update-status-form">
-                        {% csrf_token %}
-                        {{ order_status_form | crispy }}
-                        <button type="submit" id="update-status-form-submit" class="btn btn-success col-12 col-md-6 top-margin">Update Status</button>
-                    </form>
-                </div>          
-            </div>
 
-        </div>            
-        {% endfor %}
-          
-        
-        <div class="row">
-            <div class="col-6">
-                <p>Product Name</p>
             </div>
-            <div class="col-3">
-                <p class="text-center">Quantity</p>
+            {% endfor %}
+
+            <div class="row">
+                <div class="col-6">
+                    <p>Product Name</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center">Quantity</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center">Totals</p>
+                </div>
             </div>
-            <div class="col-3">
-                <p class="text-center">Totals</p>
+            {% for item in line_items %}
+            <div class="row">
+                <div class="col-6">
+                    <p>{{ item.product.name }}</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center">{{ item.quantity }}</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center">£{{ item.lineitem_total }}</p>
+                </div>
             </div>
-        </div>
-        {% for item in line_items %}
-        <div class="row">
-            <div class="col-6">
-                <p>{{ item.product.name }}</p>
-            </div>
-            <div class="col-3">
-                <p class="text-center">{{ item.quantity }}</p>
-            </div>
-            <div class="col-3">
-                <p class="text-center">£{{ item.lineitem_total }}</p>
-            </div>
-        </div>
-        <hr>
-            
-        {% endfor %}
+            <hr>
+            {% endfor %}
         </div>
         <div class="col-12 col-md-6 offset-md-3">
-            
+
             <form>
                 <a href="{% url 'get_all_orders' %}" class="btn btn-primary">Back to All Orders</a>
-                <input class="btn btn-secondary" type="button" value="Print" 
-                       onclick="window.print()" />
+                <input class="btn btn-secondary" type="button" value="Print" onclick="window.print()" />
             </form>
         </div>
     </div>
-    
 </div>
-
+{% else %}
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <h2>Access Denied</h2>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock %}

@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+{% if user.is_staff %}
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-8 offset-md-2">
@@ -10,63 +11,62 @@
                     <h1>All Orders</h1>
                 </div>
             </div>
-            {% if user.is_staff %}
 
-                    <div class="row">
-                        <div class="col col-md-2 desktop-visibility">
-                            <p>Order</p>
-                        </div>
-                        <div class="col col-md-2 desktop-visibility">
-                            <p>Customer</p>
-                        </div>
-                        <div class="col col-md-2 desktop-visibility">
-                            <p>Date</p>
-                        </div>
-                        <div class="col col-md-2 desktop-visibility">
-                            <p>Total</p>
-                        </div>
-                        <div class="col col-md-2 desktop-visibility">
-                            <p>Status</p>
-                        </div>
-                        <div class="col col-md-2 desktop-visibility">
-
-                        </div>
-                    </div>
-
-                    {% for order in all_orders %}
-                    <div class="row">
-                        <div class="col-12 col-md-2">
-                            <p><span class="mobile-visibility">Order:</span> {{ order.order_number }}</p>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <p><span class="mobile-visibility">Customer:</span> {{ order.first_name }} {{ order.last_name }}</p>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <p><span class="mobile-visibility">Date:</span> {{ order.date|date:"d M y" }}</p>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <p><span class="mobile-visibility">Total:</span> {{ order.grand_total }}</p>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <p><span class="mobile-visibility">Status:</span> {{ order.status }}</p>
-                        </div>
-                        <div class="col-12 col-md-2">
-                            <a href="{% url 'view_order_details' order.order_number %}" class="btn col-12 btn-primary">View Order</a>
-                        </div>
-                    </div>
-                    <hr>
-                    {% endfor %}
-
-
-
-
-            {% else %}
             <div class="row">
-                Access Denied
+                <div class="col col-md-2 desktop-visibility">
+                    <p>Order</p>
+                </div>
+                <div class="col col-md-2 desktop-visibility">
+                    <p>Customer</p>
+                </div>
+                <div class="col col-md-2 desktop-visibility">
+                    <p>Date</p>
+                </div>
+                <div class="col col-md-2 desktop-visibility">
+                    <p>Total</p>
+                </div>
+                <div class="col col-md-2 desktop-visibility">
+                    <p>Status</p>
+                </div>
+                <div class="col col-md-2 desktop-visibility">
+
+                </div>
             </div>
-            {% endif %}
+            {% for order in all_orders %}
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <p><span class="mobile-visibility">Order:</span> {{ order.order_number }}</p>
+                </div>
+                <div class="col-12 col-md-2">
+                    <p><span class="mobile-visibility">Customer:</span> {{ order.first_name }} {{ order.last_name }}</p>
+                </div>
+                <div class="col-12 col-md-2">
+                    <p><span class="mobile-visibility">Date:</span> {{ order.date|date:"d M y" }}</p>
+                </div>
+                <div class="col-12 col-md-2">
+                    <p><span class="mobile-visibility">Total:</span> {{ order.grand_total }}</p>
+                </div>
+                <div class="col-12 col-md-2">
+                    <p><span class="mobile-visibility">Status:</span> {{ order.status }}</p>
+                </div>
+                <div class="col-12 col-md-2">
+                    <a href="{% url 'view_order_details' order.order_number %}" class="btn col-12 btn-primary">View
+                        Order</a>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+
         </div>
     </div>
 </div>
-
+{% else %}
+<div class="container-fluid">
+    <div class="row my-row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <h2>Access Denied</h2>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
