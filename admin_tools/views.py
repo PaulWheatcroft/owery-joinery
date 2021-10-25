@@ -26,11 +26,18 @@ def view_order_details(request, order_number):
     order_status_form = OrderStatusForm(instance=order[0].status)
 
     if request.method == 'POST':
-        form = OrderStatusForm(request.POST, instance=order[0].status)
+        form = OrderStatusForm(request.POST, instance=order[0])
         if form.is_valid():
             form.save()
         messages.success(request, 'Succesfully amended the status')
-        return redirect('view_order_details', order[0].order_number)
+        order_status_form = form
+
+        context = {
+            'order': order,
+            'line_items': line_items,
+            'order_status_form': order_status_form,
+        }
+        return render(request, 'admin_tools/view_order_details.html', context)
 
     context = {
         'order': order,

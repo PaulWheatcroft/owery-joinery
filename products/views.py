@@ -86,7 +86,6 @@ def edit_product(request, product_id):
         if form.is_valid():
             form.save()
         messages.success(request, 'Succesfully amended the product')
-
         context = {
             'form': form,
         }
