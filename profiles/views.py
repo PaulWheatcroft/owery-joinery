@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 
 from checkout.models import Order, OrderLineItems
 
 
+@login_required
 def profile(request):
     """
     A view to return the logged in user's profile page
@@ -24,6 +26,7 @@ def profile(request):
         return redirect('account_signup')
 
 
+@login_required
 def view_order(request, order_number):
     """
     A view to return an order;s details

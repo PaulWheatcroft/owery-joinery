@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Product, Category
 from .forms import AddProductForm
 
@@ -49,6 +50,7 @@ def product_details(request, product_id):
     return render(request, 'products/product-details.html', context)
 
 
+@login_required
 def add_product(request):
     """
     A view to add a product
@@ -75,6 +77,7 @@ def add_product(request):
     return render(request, 'products/add-product.html', context)
 
 
+@login_required
 def edit_product(request, product_id):
     """
     A view to edit a product
@@ -103,6 +106,7 @@ def edit_product(request, product_id):
     return render(request, 'products/edit-product.html', context)
 
 
+@login_required
 def delete_product(request, product_id):
     """
     A view to delete a product
