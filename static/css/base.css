@@ -26,7 +26,7 @@ h1 {
     display: inline;
 }
 .my-container {
-    background: url('/media/pilton.jpg');
+    background: url('/media/door-mobile-2.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -234,6 +234,11 @@ h1 {
     height: 100%;
 }
 @media (min-width: 992px) {
+    .my-container {
+        background: url('/media/pilton.jpg');
+        background-position: center;
+        background-size: cover;
+    }
     .desktop-visibility {
         display: inline;
     }
