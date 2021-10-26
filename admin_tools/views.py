@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from checkout.models import Order, OrderLineItems, OrderStatus
+from django.shortcuts import render
+from checkout.models import Order, OrderLineItems
 from django.contrib import messages
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .forms import OrderStatusForm
 
@@ -14,7 +15,9 @@ def get_all_orders(request):
 
     if request.method == 'POST':
         text = request.POST.get('search-order-text')
-        searched_orders = Order.objects.filter(first_name__icontains=text)
+        searched_orders = Order.objects.filter(
+            Q(first_name__icontains=text)
+            | Q(last_name__icontains=text))
         all_orders = searched_orders
 
         context = {
