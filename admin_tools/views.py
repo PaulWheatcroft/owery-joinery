@@ -5,12 +5,22 @@ from django.contrib.auth.decorators import login_required
 from .forms import OrderStatusForm
 
 
+@login_required
 def get_all_orders(request):
     """
-    A view to return the logged in user's profile page
-    which contains a list of their previous orders
+    A view to return the list of all orders
     """
     all_orders = Order.objects.all().order_by('date').reverse()
+
+    if request.method == 'POST':
+        text = request.POST.get('search-order-text')
+        searched_orders = Order.objects.filter(first_name__icontains=text)
+        all_orders = searched_orders
+
+        context = {
+            'all_orders': all_orders,
+        }
+        return render(request, 'admin_tools/orders.html', context)
 
     context = {
         'all_orders': all_orders,

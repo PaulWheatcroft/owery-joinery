@@ -13,17 +13,20 @@
             </div>
             <div class="row orders-toolbar">
                 <div class="col">
-                    <form method="POST" id="order-search" name="order-search">
+                    <form action="" method="POST" id="order-search" name="order-search">
+                        {% csrf_token %}
                         <div class="row">
-                            <div class="col col-orders-toolbar">
-                                <label for="search-order-text" class="form-label"> Search:</label>
-                                <input id="search-order-text" placeholder="Search:" name="search-order-text" class="form-control" type="text">
-                                
+                            <div class="col-12 col-md-4 col-orders-toolbar">
+                                <label for="search-order-text" class="form-label search-box-label"> Search:</label>
+                                <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box" type="text">
                             </div>
-                            <div class="col col-orders-toolbar">
-                                <button type="submit" class="btn btn-primary">Search Orders</button>
+                            <div class="col-12 col-md-2 col-orders-toolbar">
+                                <input type="submit" class="btn btn-success search-button">
                             </div>
+                            <div class="col-12 col-md-2 col-orders-toolbar">
+                                <a href="{% url 'get_all_orders' %}" class="btn btn-secondary search-reset">Reset</a>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -59,7 +62,7 @@
                     <p><span class="mobile-visibility">Date:</span> {{ order.date|date:"d M y" }}</p>
                 </div>
                 <div class="col-12 col-md-2">
-                    <p><span class="mobile-visibility">Total:</span> {{ order.grand_total }}</p>
+                    <p><span class="mobile-visibility">Total:</span> £{{ order.grand_total }}</p>
                 </div>
                 <div class="col-12 col-md-2">
                     <p><span class="mobile-visibility">Status:</span> {{ order.status }}</p>

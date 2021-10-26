@@ -242,6 +242,15 @@ h1 {
 .col-orders-toolbar {
     margin: 0;
 }
+.search-button {
+    margin-top: 20px;
+}
+.search-box-label {
+    color: #f1f1f1;
+}
+.search-reset {
+    margin-top: 20px;
+}
 @media (min-width: 992px) {
     .my-container {
         background: url('/media/pilton.jpg');
@@ -266,5 +275,16 @@ h1 {
     }
     .product img {
         max-width: 125px;
+    }
+    .search-button {
+        margin-top: 32px;
+        border-radius: 0 5px 5px 0;
+    }
+    .search-box {
+        border-radius: 5px 0 0 5px;
+    }
+    .search-reset {
+        margin-top: 32px;
+        border-radius: 5px;
     }
 }
