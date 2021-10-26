@@ -10,7 +10,7 @@ def get_all_orders(request):
     A view to return the logged in user's profile page
     which contains a list of their previous orders
     """
-    all_orders = Order.objects.all()
+    all_orders = Order.objects.all().order_by('date').reverse()
 
     context = {
         'all_orders': all_orders,
