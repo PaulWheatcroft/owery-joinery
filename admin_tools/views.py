@@ -29,6 +29,7 @@ def view_order_details(request, order_number):
 
     if request.method == 'POST':
         form = OrderStatusForm(request.POST, instance=order[0])
+        form.status = order[0].status
         if form.is_valid():
             form.save()
         messages.success(request, 'Succesfully amended the status')
