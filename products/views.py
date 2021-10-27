@@ -11,12 +11,11 @@ from .forms import AddProductForm
 def all_products(request):
     """ A view to return all products """
 
-    all_avilable_products = Product.objects.all()
+    products = Product.objects.all().order_by('category')
     styles = Style.objects.all()
     selected_category = '0'
     selected_style = '0'
     sort = '1'
-    products = all_avilable_products.order_by('category')
 
     if request.method == 'POST':
         selected_category = request.POST.get('filter-category')
@@ -76,13 +75,19 @@ def all_products(request):
 def filtered_products(request, category_id):
     """ A view to return products filtered by category """
 
-    products_in_a_category = Product.objects.filter(category=category_id)
+    products = Product.objects.filter(category_id=category_id)
+    styles = Style.objects.all()
+    selected_category = category_id
     category = Category.objects.get(id=category_id)
-
-    products = products_in_a_category.order_by('style')
+    selected_style = '0'
+    sort = '1'
 
     context = {
         'products': products,
+        'styles': styles,
+        'selected_category': selected_category,
+        'selected_style': selected_style,
+        'sort': sort,
         'category': category,
     }
 

@@ -5,11 +5,13 @@
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-10 offset-md-1">
+
             {% if category %}
             <h1>{{ category.friendly_name }}</h1>
             {% else %}
             <h1>All Products</h1>
             {% endif %}
+
             <!-- Filter and sort -->
             <div class="row">
                 <a class="btn btn-sm filter-sort-button" data-bs-toggle="collapse" href="#collapse-search" role="button"
@@ -19,7 +21,7 @@
             </div>
             <div class="collapse" id="collapse-search">
                 <div class="card card-body filter-sort">
-                    <form method="POST" id="order-search" name="order-search">
+                    <form action="{% url 'products' %}" method="POST" id="order-search" name="order-search">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12 col-lg-3">
