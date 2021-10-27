@@ -53,7 +53,7 @@ def view_order_details(request, order_number):
     """
     order = Order.objects.filter(order_number=order_number)
     line_items = OrderLineItems.objects.filter(order=order[0].id)
-    order_status_form = OrderStatusForm(instance=order[0].status)
+    order_status_form = OrderStatusForm(instance=order[0])
 
     if request.method == 'POST':
         form = OrderStatusForm(request.POST, instance=order[0])
