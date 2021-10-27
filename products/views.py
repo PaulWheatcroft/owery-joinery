@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category
+from .models import Product, Category, Style
 from .forms import AddProductForm
 
 
@@ -12,11 +12,17 @@ def all_products(request):
     """ A view to return all products """
 
     all_avilable_products = Product.objects.all()
+    styles = Style.objects.all()
+    selected_category = '0'
+    selected_style = '0'
 
     products = all_avilable_products.order_by('category')
 
     context = {
         'products': products,
+        'styles': styles,
+        'selected_category': selected_category,
+        'selected_style': selected_style,
     }
 
     return render(request, 'products/products.html', context)
