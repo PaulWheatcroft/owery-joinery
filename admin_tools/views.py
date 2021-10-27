@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from checkout.models import Order, OrderLineItems
+from checkout.models import Order, OrderLineItems, OrderStatus
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -11,22 +11,29 @@ def get_all_orders(request):
     """
     A view to return the list of all orders
     """
-    all_orders = Order.objects.all().order_by('date').reverse()
+    orders = Order.objects.all().order_by('date').reverse()
+    all_status = OrderStatus.objects.all().order_by('status_id')
 
     if request.method == 'POST':
         text = request.POST.get('search-order-text')
+        status = request.POST.get('search-status')
+        print(status, text)
         searched_orders = Order.objects.filter(
             Q(first_name__icontains=text)
             | Q(last_name__icontains=text))
-        all_orders = searched_orders
+        orders = searched_orders
 
         context = {
-            'all_orders': all_orders,
+            'orders': orders,
+            'all_status': all_status,
+            'selected_text': text,
+            'selected_status': status
         }
         return render(request, 'admin_tools/orders.html', context)
 
     context = {
-        'all_orders': all_orders,
+        'orders': orders,
+        'all_status': all_status
     }
     return render(request, 'admin_tools/orders.html', context)
 

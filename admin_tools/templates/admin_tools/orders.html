@@ -18,7 +18,23 @@
                         <div class="row">
                             <div class="col-12 col-md-4 col-orders-toolbar">
                                 <label for="search-order-text" class="form-label search-box-label"> Search:</label>
+                                {% if selected_text %}
+                                <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box" type="text" value="{{ selected_text }}">
+                                {% else %}
                                 <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box" type="text">
+                                {% endif %}
+                            </div>
+                            <div class="col">
+                                <select name="search-status" class="form-select" aria-label="Select status">
+                                    <option value="0">Filter Status - Leave for all</option>
+                                    {% for status in all_status %}
+                                        {% if selected_status %}
+                                            <option value="{{ status.status_id }}" selected>{{ status.status_name }}</option>
+                                        {% else %}
+                                            <option value="{{ status.status_id }}">{{ status.status_name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
                             </div>
                             <div class="col-12 col-md-2 col-orders-toolbar">
                                 <input type="submit" class="btn btn-success search-button">
@@ -50,7 +66,7 @@
 
                 </div>
             </div>
-            {% for order in all_orders %}
+            {% for order in orders %}
             <div class="row">
                 <div class="col-12 col-md-2">
                     <p><span class="mobile-visibility">Order:</span> {{ order.order_number }}</p>
