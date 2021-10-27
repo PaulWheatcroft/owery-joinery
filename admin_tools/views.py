@@ -1,8 +1,8 @@
-from django.shortcuts import render, reverse
-from checkout.models import Order, OrderLineItems, OrderStatus
+from django.shortcuts import render
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from checkout.models import Order, OrderLineItems, OrderStatus
 from .forms import OrderStatusForm
 
 
@@ -13,10 +13,12 @@ def get_orders(request):
     """
     all_orders = Order.objects.all().order_by('date').reverse()
     all_status = OrderStatus.objects.all().order_by('status_id')
+    selected_status = '0'
 
     if request.method == 'POST':
         text = request.POST.get('search-order-text')
         status = request.POST.get('search-status')
+        selected_status = status
 
         if text == '' and status == '0':
             orders = all_orders
@@ -35,13 +37,14 @@ def get_orders(request):
             'orders': orders,
             'all_status': all_status,
             'selected_text': text,
-            'selected_status': status
+            'selected_status': selected_status,
         }
         return render(request, 'admin_tools/orders.html', context)
 
     context = {
         'orders': all_orders,
-        'all_status': all_status
+        'all_status': all_status,
+        'selected_status': selected_status,
     }
     return render(request, 'admin_tools/orders.html', context)
 

@@ -15,7 +15,8 @@
                         <ul class="dropdown-menu">
                             {% for category in categories %}
                                 <li><a href="{% url 'filtered_products' category_id=category.id %}" class="dropdown-item">{{ category.friendly_name }}</a></li>
-                            {% endfor %}                  
+                            {% endfor %}  
+                                <li><a href="{% url 'products' %}" class="dropdown-item">All Products</a></li>                
                         </ul>
                     </li>
                     {% if user.is_staff %}

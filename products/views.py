@@ -15,14 +15,51 @@ def all_products(request):
     styles = Style.objects.all()
     selected_category = '0'
     selected_style = '0'
-
+    sort = '1'
     products = all_avilable_products.order_by('category')
+
+    if request.method == 'POST':
+        selected_category = request.POST.get('filter-category')
+        selected_style = request.POST.get('filter-style')
+        sort = request.POST.get('sort-radio')
+
+        print(selected_category, selected_style, sort)
+
+        if sort == '1':
+            print('low to high')
+            if selected_category > '0' and selected_style > '0':
+                products = Product.objects.filter(
+                    category=selected_category,
+                    style=selected_style).order_by('price')
+            elif selected_category > '0' and selected_style == '0':
+                products = Product.objects.filter(
+                    category=selected_category).order_by('price')
+            elif selected_category == '0' and selected_style > '0':
+                products = Product.objects.filter(
+                    style=selected_style).order_by('price')
+            else:
+                products = Product.objects.all().order_by('price')
+        else:
+            print('high to low')
+            if selected_category > '0' and selected_style > '0':
+                products = Product.objects.filter(
+                    category=selected_category,
+                    style=selected_style).order_by('-price')
+            elif selected_category > '0' and selected_style == '0':
+                products = Product.objects.filter(
+                    category=selected_category).order_by('-price')
+            elif selected_category == '0' and selected_style > '0':
+                products = Product.objects.filter(
+                    style=selected_style).order_by('-price')
+            else:
+                products = Product.objects.all().order_by('-price')
 
     context = {
         'products': products,
         'styles': styles,
         'selected_category': selected_category,
         'selected_style': selected_style,
+        'sort': sort
     }
 
     return render(request, 'products/products.html', context)
