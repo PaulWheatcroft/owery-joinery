@@ -6,3 +6,10 @@
 
 # Acknowledgements
 
+# Testing
+## HTML
+All pages have been tested through https://validator.w3.org/ without issue
+
+## Accepted Errors
+Class 'Xxxxxx' has no 'objects' member pylint(no-member)
+

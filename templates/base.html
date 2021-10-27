@@ -14,6 +14,7 @@
     <title>Owery Joinery {% block appendtitle %}{% endblock %}</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sticky-footer/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 
     {% block corecss %}
     
@@ -91,7 +92,7 @@
             let myAlert = document.querySelector('.toast');
             let bsAlert = new bootstrap.Toast(myAlert);
             bsAlert.show();
-        }
+        };
     </script>
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
