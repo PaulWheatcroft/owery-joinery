@@ -10,17 +10,15 @@
             {% else %}
             <h1>All Products</h1>
             {% endif %}
-
+            <!-- Filter and sort -->
             <div class="row">
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse-search" role="button"
+                <a class="btn btn-sm filter-sort-button" data-bs-toggle="collapse" href="#collapse-search" role="button"
                     aria-expanded="false" aria-controls="collapse-search">
                     Filter and Order
                 </a>
             </div>
-
-
             <div class="collapse" id="collapse-search">
-                <div class="card card-body">
+                <div class="card card-body filter-sort">
                     <form action="" method="POST" id="order-search" name="order-search">
                         {% csrf_token %}
                         <div class="row">
@@ -53,14 +51,16 @@
                             </div>
                             <div class="col-12 col-lg-2 mt-sm-2 mt-lg-4 ms-lg-4 ">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-lh" value="1" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
+                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-lh"
+                                        value="1" checked>
+                                    <label class="form-check-label search-box-label" for="flexRadioDefault2">
                                         £ Low to High
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-hl" value="2">
-                                    <label class="form-check-label" for="flexRadioDefault2">
+                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-hl"
+                                        value="2">
+                                    <label class="form-check-label search-box-label" for="flexRadioDefault2">
                                         £ High to Low
                                     </label>
                                 </div>
@@ -77,7 +77,7 @@
                     </form>
                 </div>
             </div>
-
+            <!-- End filter and sort -->
             <div class="row justify-content-around top-margin">
                 {% for product in products %}
                 <div class="card col-12 product">

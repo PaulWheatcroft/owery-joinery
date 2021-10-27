@@ -23,10 +23,7 @@ def all_products(request):
         selected_style = request.POST.get('filter-style')
         sort = request.POST.get('sort-radio')
 
-        print(selected_category, selected_style, sort)
-
         if sort == '1':
-            print('low to high')
             if selected_category > '0' and selected_style > '0':
                 products = Product.objects.filter(
                     category=selected_category,
@@ -40,7 +37,6 @@ def all_products(request):
             else:
                 products = Product.objects.all().order_by('price')
         else:
-            print('high to low')
             if selected_category > '0' and selected_style > '0':
                 products = Product.objects.filter(
                     category=selected_category,

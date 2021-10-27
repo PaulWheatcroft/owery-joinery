@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><img src="{{ MEDIA_URL }}owery-menu.png" alt="Owery Joinery"></a>
                 <a class="nav-cart-icon" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i><span class="nav-cart-number">{{ total_number_of_items }}</span></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                <button class="navbar-toggler toggle-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>

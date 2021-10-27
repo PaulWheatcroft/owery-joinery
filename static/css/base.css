@@ -37,6 +37,9 @@ h1 {
 .my-nav {
     background-color: #383533;
 }
+.toggle-btn:focus {
+    box-shadow: none;
+}
 .nav-cart-icon {
     float: right;
     color: #f1f1f1;
@@ -44,9 +47,6 @@ h1 {
 }
 .nav-cart-icon a {
     text-decoration: none;
-}
-.nav-cart-text {
-    display: none;
 }
 .nav-cart-number {
     display: inline-block;
@@ -140,6 +140,16 @@ h1 {
     text-shadow: 2px 2px 3px rgb(53, 53, 53);
 }
 /** Specific styling for procuts **/
+.filter-sort-button {
+    background-color: #F0AE0E;
+}
+.filter-sort-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+.filter-sort {
+    background-color: #383533;
+}
 .product {
     background-color: #F0AE0E;
     border: none;
@@ -248,6 +258,11 @@ h1 {
 .search-reset {
     margin-top: 20px;
 }
+@media (min-width: 768px) {
+    .nav-cart-icon {
+        display: none;
+    }
+}
 @media (min-width: 992px) {
     .my-container {
         background: url('/media/pilton.jpg');
@@ -260,12 +275,7 @@ h1 {
     .mobile-visibility {
         display: none;
     }
-    .nav-cart-icon {
-        display: none;
-    }
-    .nav-cart-text {
-        display: list-item;
-    }
+
     .home-page h1 {
         font-family: 'Nothing You Could Do', cursive;
         font-size: 4em;
