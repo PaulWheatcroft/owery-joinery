@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from checkout.models import Order, OrderLineItems, OrderStatus
 from django.contrib import messages
 from django.db.models import Q
@@ -7,21 +7,29 @@ from .forms import OrderStatusForm
 
 
 @login_required
-def get_all_orders(request):
+def get_orders(request):
     """
     A view to return the list of all orders
     """
-    orders = Order.objects.all().order_by('date').reverse()
+    all_orders = Order.objects.all().order_by('date').reverse()
     all_status = OrderStatus.objects.all().order_by('status_id')
 
     if request.method == 'POST':
         text = request.POST.get('search-order-text')
         status = request.POST.get('search-status')
-        print(status, text)
-        searched_orders = Order.objects.filter(
-            Q(first_name__icontains=text)
-            | Q(last_name__icontains=text))
-        orders = searched_orders
+
+        if text == '' and status == '0':
+            orders = all_orders
+        elif status == '0':
+            searched_orders = Order.objects.filter(
+                Q(first_name__icontains=text)
+                | Q(last_name__icontains=text))
+            orders = searched_orders
+        else:
+            searched_orders = Order.objects.filter(
+                Q(first_name__icontains=text, status=status)
+                | Q(last_name__icontains=text, status=status))
+            orders = searched_orders
 
         context = {
             'orders': orders,
@@ -32,7 +40,7 @@ def get_all_orders(request):
         return render(request, 'admin_tools/orders.html', context)
 
     context = {
-        'orders': orders,
+        'orders': all_orders,
         'all_status': all_status
     }
     return render(request, 'admin_tools/orders.html', context)

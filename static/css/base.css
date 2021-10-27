@@ -278,10 +278,6 @@ h1 {
     }
     .search-button {
         margin-top: 32px;
-        border-radius: 0 5px 5px 0;
-    }
-    .search-box {
-        border-radius: 5px 0 0 5px;
     }
     .search-reset {
         margin-top: 32px;

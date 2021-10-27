@@ -29,10 +29,10 @@ class TestAdminToolsUrls(SimpleTestCase):
     """
     Test admin_tools app urls
     """
-    def test_get_all_orders_url_is_resolved(self):
+    def test_get_orders_url_is_resolved(self):
         """ testing get_all_orders """
-        url = reverse('get_all_orders')
-        self.assertEqual(resolve(url).func, get_all_orders)
+        url = reverse('get_orders')
+        self.assertEqual(resolve(url).func, get_orders)
 
     def test_view_order_details_url_is_resolved(self):
         """ testing view_order_details """
