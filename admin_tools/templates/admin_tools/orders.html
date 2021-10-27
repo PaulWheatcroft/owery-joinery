@@ -19,12 +19,12 @@
                             <div class="col-12 col-md-4 col-orders-toolbar">
                                 <label for="search-order-text" class="form-label search-box-label">Search:</label>
                                 {% if selected_text %}
-                                <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box" type="text" value="{{ selected_text }}">
+                                <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box me-1" type="text" value="{{ selected_text }}">
                                 {% else %}
-                                <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box" type="text">
+                                <input id="search-order-text" placeholder="Search..." name="search-order-text" class="form-control search-box me-1" type="text">
                                 {% endif %}
                             </div>
-                            <div class="col">
+                            <div class="col ms-md-4">
                                 <label for="search-status" class="form-label search-box-label">Status:</label>
                                 <select name="search-status" class="form-select" aria-label="Select status">
                                     <option value="0">Any Status</option>
@@ -37,11 +37,11 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-12 col-md-2 col-orders-toolbar">
-                                <input type="submit" class="btn btn-success search-button">
+                            <div class="col-12 col-md-2 ms-md-4 col-orders-toolbar">
+                                <input type="submit" class="btn btn-success search-buttons">
                             </div>
                             <div class="col-12 col-md-2 col-orders-toolbar">
-                                <a href="{% url 'get_orders' %}" class="btn btn-secondary search-reset">Reset</a>
+                                <a href="{% url 'get_orders' %}" class="btn btn-secondary search-buttons">Reset</a>
                             </div>
                         </div>
                     </form>
