@@ -24,6 +24,7 @@ def all_products(request):
         sort = request.POST.get('sort-radio')
 
         if sort == '1':
+            selected_sort = int(sort)
             if selected_category > '0' and selected_style > '0':
                 products = Product.objects.filter(
                     category=selected_category,
@@ -37,6 +38,7 @@ def all_products(request):
             else:
                 products = Product.objects.all().order_by('price')
         else:
+            selected_sort = int(sort)
             if selected_category > '0' and selected_style > '0':
                 products = Product.objects.filter(
                     category=selected_category,
@@ -49,6 +51,16 @@ def all_products(request):
                     style=selected_style).order_by('-price')
             else:
                 products = Product.objects.all().order_by('-price')
+
+        context = {
+            'products': products,
+            'styles': styles,
+            'selected_category': selected_category,
+            'selected_style': selected_style,
+            'sort': selected_sort
+        }
+
+        return render(request, 'products/products.html', context)
 
     context = {
         'products': products,

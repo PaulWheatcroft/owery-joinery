@@ -30,7 +30,7 @@
                                 <select name="search-status" class="form-select" aria-label="Select status">
                                     <option value="0">Any Status</option>
                                     {% for status in all_status %}
-                                        {% if status.status_id == selected_status.id %}
+                                        {% if status.status_id|floatformat == selected_status|floatformat %}
                                             <option value="{{ status.status_id }}" selected>{{ status.status_name }}</option>
                                         {% else %}
                                             <option value="{{ status.status_id }}">{{ status.status_name }}</option>

@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from home.views import index, about
-from admin_tools.views import get_all_orders, view_order_details
+from admin_tools.views import get_orders, view_order_details
 from cart.views import (view_cart, add_to_cart, amend_cart,
                         remove_product_from_cart)
 from checkout.views import checkout, cache_checkout_data
