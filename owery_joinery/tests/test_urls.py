@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from home.views import index, about
+from home.views import index, about, contact
 from admin_tools.views import get_orders, view_order_details
 from cart.views import (view_cart, add_to_cart, amend_cart,
                         remove_product_from_cart)
@@ -23,6 +23,11 @@ class TestHomeUrls(SimpleTestCase):
         """ testing about """
         url = reverse('about')
         self.assertEqual(resolve(url).func, about)
+
+    def test_contact_url_is_resolved(self):
+        """ testing about """
+        url = reverse('contact')
+        self.assertEqual(resolve(url).func, contact)
 
 
 class TestAdminToolsUrls(SimpleTestCase):
