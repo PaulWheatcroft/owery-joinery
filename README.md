@@ -69,6 +69,7 @@ The wireframes can be accessed here https://www.figma.com/file/PLCjxfbqNyHkBnTBQ
 
 # Architecture
 
+## Framework
 
 # Future Improvements
 - Print button captures the whole window. This could be made much neater
