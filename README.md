@@ -11,9 +11,9 @@ Owery have designed and hand-crafted kitchens, furniture, doors, windows for dec
 
 The live project has been deployed to https://owery-joinery.herokuapp.com/
 
-## User Experience (UX)
+# User Experience (UX)
 
-### User Stories
+## User Stories
 
 Working with the owner of Owery Joinery the following personas and user stories have been identified:
 
@@ -56,7 +56,19 @@ Working with the owner of Owery Joinery the following personas and user stories 
  - Remove prodcuts from the catalogue. So that I can keep the product catalogue current.
  - Set the job status of an order based on business processes. So that the customer and workshop can see the work schedule and progress.
  - Print off an order. So that I can pass this to the workshop to progress the order.
- - 
+
+# Wireframing
+
+ <img src="readme_images/wireframe.jpg" >
+
+ <img src="readme_images/google.jpg" style="margin: 0;">
+
+Goodle Ads information reports that the current Owery website's trafiic is almost 70% mobile devices of all visits. This informed the design and therefore wireframes to be built around a mobile experience and this would scale to accomodate desktop.
+
+The wireframes can be accessed here https://www.figma.com/file/PLCjxfbqNyHkBnTBQhETnF/Owery?node-id=3%3A109
+
+# Architecture
+
 
 # Future Improvements
 - Print button captures the whole window. This could be made much neater
