@@ -1,6 +1,6 @@
 # Owery Joinery
 
-<img src="readme_images/mockup-header.jpg" style="margin: 0;">
+<img src="media/mockup-header.jpg" style="margin: 0;">
 
 Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic thier customers have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
 
@@ -59,9 +59,9 @@ Working with the owner of Owery Joinery the following personas and user stories 
 
 # Wireframing
 
- <img src="readme_images/wireframe.jpg" >
+ <img src="media/wireframe.jpg" >
 
- <img src="readme_images/google.jpg" style="margin: 0;">
+ <img src="media/google.jpg" style="margin: 0;">
 
 Goodle Ads information reports that the current Owery website's trafiic is almost 70% mobile devices of all visits. This informed the design and therefore wireframes to be built around a mobile experience and this would scale to accomodate desktop.
 
