@@ -24,3 +24,15 @@ def about(request):
     }
 
     return render(request, 'home/about.html', context)
+
+
+def contact(request):
+    """ A view to return the about page """
+
+    categories = Category.objects.all()
+
+    context = {
+        'categories': categories
+    }
+
+    return render(request, 'home/contact.html', context)

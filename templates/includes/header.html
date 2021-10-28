@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -44,15 +44,16 @@
                     </li>
                     {% endif %}     
                     {% if not user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Account</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>            
+                        </ul>
                     </li>
                     {% endif %}       
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_cart' %}">Shopping Cart<span class="nav-cart-number">{{ total_number_of_items }}</span></a>
+                    <li class="nav-item desktop-visibility">
+                        <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i><span class="nav-cart-number">{{ total_number_of_items }}</span></a>
                     </li>
                 </ul>
             </div>            
