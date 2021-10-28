@@ -28,3 +28,5 @@ urlpatterns = [
     path('profiles/', include('profiles.urls')),
     path('admin-tools/', include('admin_tools.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'home.views.error_404_view'

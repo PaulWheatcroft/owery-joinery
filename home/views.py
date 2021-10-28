@@ -2,6 +2,11 @@ from django.shortcuts import render
 from products.models import Category
 
 
+def error_404_view(request, exception):
+    """ A view to return a 404 page when debug is false """
+    return render(request, '404.html')
+
+
 def index(request):
     """ A view to return the index page """
 
