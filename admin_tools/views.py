@@ -24,13 +24,13 @@ def get_orders(request):
             orders = all_orders
         elif status == '0':
             searched_orders = Order.objects.filter(
-                Q(first_name__icontains=text)
-                | Q(last_name__icontains=text))
+                Q(first_name__icontains=text) |
+                Q(last_name__icontains=text))
             orders = searched_orders
         else:
             searched_orders = Order.objects.filter(
-                Q(first_name__icontains=text, status=status)
-                | Q(last_name__icontains=text, status=status))
+                Q(first_name__icontains=text, status=status) |
+                Q(last_name__icontains=text, status=status))
             orders = searched_orders
 
         context = {

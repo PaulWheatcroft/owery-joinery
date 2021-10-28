@@ -5,9 +5,6 @@ from .models import Product, Category, Style
 from .forms import AddProductForm
 
 
-# Create your views here.
-
-
 def all_products(request):
     """ A view to return all products """
 

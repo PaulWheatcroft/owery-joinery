@@ -71,7 +71,7 @@ def checkout(request):
                 # Attach the user's profile to the order
                 order.user_profile = profile
                 order.save()
-        
+
         send_mail('Confirmation Of Order', 'This is to confirm order:'
                   f'{order.order_number}',
                   settings.EMAIL_HOST_USER, [email],)

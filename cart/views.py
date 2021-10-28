@@ -48,5 +48,6 @@ def remove_product_from_cart(request, product_id):
     del cart[product_id]
 
     request.session['cart'] = cart
-    messages.info(request, 'Item successfully removed from your shopping cart.')
+    messages.info(
+        request, 'Item successfully removed from your shopping cart.')
     return render(request, 'cart/cart.html')
