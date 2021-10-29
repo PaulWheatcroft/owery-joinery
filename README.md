@@ -2,7 +2,7 @@
 
 <img src="media/mockup-header.jpg" style="margin: 0;">
 
-Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic thier customers have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
+Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic their customers have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
 
 >
 > The purpose of this project was to create a functional e-commerce site to replace the current static site.

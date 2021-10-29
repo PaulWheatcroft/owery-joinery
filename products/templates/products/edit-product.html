@@ -11,7 +11,8 @@
             <form action="#" method="POST" id="edit-product-form" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-primary top-margin">Edit Product</button>
+                <a href="{% url 'filtered_products' edit_product_details.category.id  %}" class="btn btn-secondary top-margin">Back to {{ edit_product_details.category.friendly_name }}</a>
+                <button type="submit" class="btn btn-success top-margin">Save Changes</button>
                 <a href="{% url 'delete_product' edit_product_details.id %}" class="btn btn-danger top-margin">Delete Product</a>
             </form>
         </div>

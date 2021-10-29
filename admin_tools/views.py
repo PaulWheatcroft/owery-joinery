@@ -16,11 +16,15 @@ def get_orders(request):
     selected_status = '0'
 
     if request.method == 'POST':
+        # The post contains filter informtion for the list of orders
+        # this is text and or a status
         text = request.POST.get('search-order-text')
         status = request.POST.get('search-status')
         selected_status = status
 
         if text == '' and status == '0':
+            messages.error(request, "You need to enter some text or\
+                select a status before searching")
             orders = all_orders
         elif status == '0':
             searched_orders = Order.objects.filter(

@@ -15,6 +15,8 @@ def all_products(request):
     sort = '1'
 
     if request.method == 'POST':
+        # The POST is called by submitting a
+        # form to filter the products list
         selected_category = request.POST.get('filter-category')
         selected_style = request.POST.get('filter-style')
         sort = request.POST.get('sort-radio')

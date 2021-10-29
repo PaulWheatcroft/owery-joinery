@@ -104,6 +104,7 @@
             <!-- display products -->
             <div class="row justify-content-around top-margin">
                 {% for product in products %}
+                {% if not product.is_discontinued %}
                 <div class="card col-12 product">
                     <div class="row">
                         <div class="col product-name">
@@ -122,8 +123,11 @@
                         {% endif %}
                         <div class="col-8">
                             <p class="card-text">{{ product.description|truncatewords:25 }}<br>
-                                <a class="btn btn-sm btn-primary" href="{% url 'product_details' product.id %}">View
-                                    details</a>
+                                {% if product.is_offer %}
+                                <a class="btn btn-sm btn-danger" href="{% url 'product_details' product.id %}">Special Offer! View details</a>
+                                {% else %}
+                                <a class="btn btn-sm btn-primary" href="{% url 'product_details' product.id %}">View details</a>
+                                {% endif %}
                             </p>
 
                         </div>
@@ -153,6 +157,7 @@
                         </div>
                     </form>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
 
