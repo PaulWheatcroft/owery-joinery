@@ -124,12 +124,13 @@
                         <div class="col-8">
                             <p class="card-text">{{ product.description|truncatewords:25 }}<br>
                                 {% if product.is_offer %}
-                                <a class="btn btn-sm btn-danger" href="{% url 'product_details' product.id %}">Special Offer! View details</a>
+                                <a class="btn btn-sm btn-danger" href="{% url 'product_details' product.id %}">Special
+                                    Offer! View details</a>
                                 {% else %}
-                                <a class="btn btn-sm btn-primary" href="{% url 'product_details' product.id %}">View details</a>
+                                <a class="btn btn-sm btn-primary" href="{% url 'product_details' product.id %}">View
+                                    details</a>
                                 {% endif %}
                             </p>
-
                         </div>
                     </div>
                     <form action="{% url 'add_to_cart' product.id %}" method="POST" class="form">

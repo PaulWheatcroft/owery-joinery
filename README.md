@@ -26,6 +26,7 @@ Working with the owner of Owery Joinery the following personas and user stories 
  - View a list of specific products of my choosing based thier category. So that I can select a particular category of product from a specific list to buy.
  - View a list of specific products of my choosing based thier category and style. So that I can select something from a specific list, where it is easy to compare like for like, to buy.
  - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
+ - See if there are any special offers. So that I can make an informed purchased based on price.
  - Sort the view of products by price low to high. So that I can make an informed purchased based on price.
  - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
  - Easily register for an account. So that I can have a personalised account to view my profile.
@@ -54,6 +55,8 @@ Working with the owner of Owery Joinery the following personas and user stories 
  - Add new products. So that I can add new items to the product catalogue myself.
  - Amend current products details. So that I can change products in the catalogue myself.
  - Remove prodcuts from the catalogue. So that I can keep the product catalogue current.
+ - Set a paroduct to discontinued. So that I can keep the product catalogue current without deleting the product.
+ - Set a product to on offer. So I can highlight products where the price has been reduced.
  - Set the job status of an order based on business processes. So that the customer and workshop can see the work schedule and progress.
  - Print off an order. So that I can pass this to the workshop to progress the order.
 
@@ -68,6 +71,10 @@ Goodle Ads information reports that the current Owery website's trafiic is almos
 The wireframes can be accessed here https://www.figma.com/file/PLCjxfbqNyHkBnTBQhETnF/Owery?node-id=3%3A109
 
 # Architecture
+
+## Database
+
+The Owery Joinery website is run on a relational database.
 
 ## Framework
 
