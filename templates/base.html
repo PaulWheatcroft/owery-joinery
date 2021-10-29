@@ -29,20 +29,22 @@
 <body class="d-flex flex-column h-100">
     {% include 'includes/header.html' %}
     {% if messages %}
-    <div class="toast-container row">
+    <div class="toast-container container-fluid">
         {% for message in messages %}
-        <div class="message-container col offset-md-1">
-            {% with message.level as level %}
-            {% if level == 40 %}
-            {% include 'includes/toasts/toast-error.html' %}
-            {% elif level == 30 %}
-            {% include 'includes/toasts/toast-warning.html' %}
-            {% elif level == 25 %}
-            {% include 'includes/toasts/toast-success.html' %}
-            {% else %}
-            {% include 'includes/toasts/toast-info.html' %}
-            {% endif %}
-            {% endwith %}
+        <div class="message-container row">
+            <div class="col">
+                {% with message.level as level %}
+                {% if level == 40 %}
+                {% include 'includes/toasts/toast-error.html' %}
+                {% elif level == 30 %}
+                {% include 'includes/toasts/toast-warning.html' %}
+                {% elif level == 25 %}
+                {% include 'includes/toasts/toast-success.html' %}
+                {% else %}
+                {% include 'includes/toasts/toast-info.html' %}
+                {% endif %}
+                {% endwith %}
+            </div>            
         </div>
         {% endfor %}
     </div>

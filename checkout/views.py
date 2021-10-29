@@ -16,6 +16,9 @@ from .models import OrderLineItems
 
 @require_POST
 def cache_checkout_data(request):
+    # Put the cart and username in the meta data of the payment
+    # intent so these details can be used to verify the transaction
+    # Through the webhook handler
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -31,12 +34,14 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    # Checkout through Stripe
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
         email = request.POST['email']
+        # Create the form data for the database
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -51,6 +56,8 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            # If the order is valid save it but don't commit
+            # as the stripe transaction details need to added
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -58,6 +65,8 @@ def checkout(request):
             order.save()
             order_items = []
             for product_id, quantity in cart.items():
+                # Iterate through the products and add them each to the
+                # OrderLinesItems form
                 product = Product.objects.get(id=product_id)
                 order_line_items = OrderLineItems(
                     order=order,
@@ -67,8 +76,9 @@ def checkout(request):
                 order_items.append(order_line_items)
                 order_line_items.save()
             if request.user.is_authenticated:
+                # If the user is authenticated then
+                # attach the user's profile to the order
                 profile = UserProfile.objects.get(user=request.user)
-                # Attach the user's profile to the order
                 order.user_profile = profile
                 order.save()
 

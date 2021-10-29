@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-{% if user.is_staff %}
+{% if user.is_superuser %}
+<!-- Form for editing a current product. Must be a superuser -->
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-6 offset-md-3">

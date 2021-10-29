@@ -3,14 +3,16 @@
 
 {% block content %}
 {% if user.is_staff %}
+<!-- Page for editing an orders status. Must be a staff member -->
 <div class="container-fluid">
     <div class="row my-row">
-        <div class="col-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3">
+        <div class="col-12 col-lg-8 offset-lg-2">
             {% for detail in order %}
             <div class="row">
                 <h1>Order Details </h1></span>
                 <h3 class="text-center"></h3>
                 <div class="row">
+                    <!-- Order summary -->
                     <div class="col-12 col-md-4">
                         <h6>Order Summary</h6>
                         <p>
@@ -20,6 +22,7 @@
                             Order Total: £{{ detail.grand_total }}<br>
                         </p>
                     </div>
+                    <!-- Customer Details -->
                     <div class="col-12 col-md-4">
                         <h6>Customer Details</h6>
                         <p class="">{{ detail.first_name }} {{ detail.last_name }}<br>
@@ -33,6 +36,7 @@
                             {{ detail.country }}<br>
                         </p>
                     </div>
+                    <!-- Status form -->
                     <div class="col-12 col-md-4">
                         <form action="#" method="POST" name="update-status-form">
                             {% csrf_token %}
@@ -45,7 +49,7 @@
 
             </div>
             {% endfor %}
-
+            <!-- Div rows to display the products in the order -->
             <div class="row">
                 <div class="col-6">
                     <p>Product Name</p>

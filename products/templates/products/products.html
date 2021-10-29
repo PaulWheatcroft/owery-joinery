@@ -5,13 +5,13 @@
 <div class="container-fluid">
     <div class="row my-row">
         <div class="col-12 col-md-10 offset-md-1 col-xl-8 offset-xl-2">
-
+            <!-- Heading row -->
             {% if category %}
             <h1>{{ category.friendly_name }}</h1>
             {% else %}
             <h1>All Products</h1>
             {% endif %}
-
+            <!-- Main content row -->
             <!-- Filter and sort -->
             <div class="row">
                 <a class="btn btn-sm filter-sort-button" data-bs-toggle="collapse" href="#collapse-search" role="button"
@@ -27,61 +27,65 @@
                             <div class="col-12 col-lg-3">
                                 <label for="filter-category" class="form-label search-box-label">Select
                                     Category:</label>
-                                <select name="filter-category" id="filter-category" class="form-select" aria-label="Select Category">
+                                <select name="filter-category" id="filter-category" class="form-select"
+                                    aria-label="Select Category">
                                     <option value="0">All Categories</option>
                                     {% for category in categories %}
-                                        {% if category.id|floatformat == selected_category|floatformat %}
-                                            <option value="{{ category.id }}" selected="selected">{{ category.friendly_name }}</option>
-                                        {% else %}
-                                            <option value="{{ category.id }}">{{ category.friendly_name }}</option>
-                                        {% endif %}
+                                    {% if category.id|floatformat == selected_category|floatformat %}
+                                    <option value="{{ category.id }}" selected="selected">{{ category.friendly_name }}
+                                    </option>
+                                    {% else %}
+                                    <option value="{{ category.id }}">{{ category.friendly_name }}</option>
+                                    {% endif %}
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="col-12 col-lg-3 ms-lg-4">
                                 <label for="filter-style" class="form-label search-box-label">Select Style:</label>
-                                <select id="filter-style" name="filter-style" class="form-select" aria-label="Select Style">
+                                <select id="filter-style" name="filter-style" class="form-select"
+                                    aria-label="Select Style">
                                     <option value="0">All Styles</option>
                                     {% for style in styles %}
-                                        {% if style.id|floatformat == selected_style|floatformat %}
-                                            <option value="{{ style.id }}" selected="selected">{{ style.friendly_name }}</option>
-                                        {% else %}
-                                            <option value="{{ style.id }}">{{ style.friendly_name }}</option>
-                                        {% endif %}
+                                    {% if style.id|floatformat == selected_style|floatformat %}
+                                    <option value="{{ style.id }}" selected="selected">{{ style.friendly_name }}
+                                    </option>
+                                    {% else %}
+                                    <option value="{{ style.id }}">{{ style.friendly_name }}</option>
+                                    {% endif %}
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="col-12 col-lg-2 mt-sm-2 mt-lg-4 ms-lg-4 ">
-                                {% if sort == 1 %}                            
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sort-radio" id="sort-lh"
-                                            value="1" checked>
-                                        <label class="form-check-label search-box-label" for="sort-lh">
-                                            £ Low to High
-                                        </label>
-                                    </div>                                    
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sort-radio" id="sort-hl"
-                                            value="2">
-                                        <label class="form-check-label search-box-label" for="sort-hl">
-                                            £ High to Low
-                                        </label>
-                                    </div>
+                                {% if sort == 1 %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-lh"
+                                        value="1" checked>
+                                    <label class="form-check-label search-box-label" for="sort-lh">
+                                        £ Low to High
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-hl"
+                                        value="2">
+                                    <label class="form-check-label search-box-label" for="sort-hl">
+                                        £ High to Low
+                                    </label>
+                                </div>
                                 {% else %}
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sort-radio" id="sort-lh"
-                                            value="1">
-                                        <label class="form-check-label search-box-label" for="sort-lh">
-                                            £ Low to High
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sort-radio" id="sort-hl"
-                                            value="2" checked>
-                                        <label class="form-check-label search-box-label" for="sort-hl">
-                                            £ High to Low
-                                        </label>
-                                    </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-lh"
+                                        value="1">
+                                    <label class="form-check-label search-box-label" for="sort-lh">
+                                        £ Low to High
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort-radio" id="sort-hl"
+                                        value="2" checked>
+                                    <label class="form-check-label search-box-label" for="sort-hl">
+                                        £ High to Low
+                                    </label>
+                                </div>
                                 {% endif %}
                             </div>
 
@@ -97,6 +101,7 @@
                 </div>
             </div>
             <!-- End filter and sort -->
+            <!-- display products -->
             <div class="row justify-content-around top-margin">
                 {% for product in products %}
                 <div class="card col-12 product">
@@ -105,8 +110,6 @@
                             <h3>{{ product.name|title }}</h3>
                         </div>
                     </div>
-
-
                     <div class="row product-details">
                         {% if product.image %}
                         <div class="col-4"

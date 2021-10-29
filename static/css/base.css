@@ -134,6 +134,7 @@ h1 {
 .message-container {
     position: fixed;
     top: 66px;
+    right: 10px;
     z-index: 99999999999;
 }
 /** Specific styling for procuts **/
