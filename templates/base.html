@@ -66,9 +66,12 @@
     </script>
     <script type="text/javascript">
         window.onload = (event) => {
+            event.preventDefault()
             let myAlert = document.querySelector('.toast');
             let bsAlert = new bootstrap.Toast(myAlert);
-            bsAlert.show();
+            if (document.querySelector(".toast")) {
+                bsAlert.show();
+            }     
         };
     </script>
     <script src="https://js.stripe.com/v3/"></script>
