@@ -1,5 +1,6 @@
 from decimal import Decimal
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 from products.models import Product
 
 
@@ -9,7 +10,7 @@ def contents_of_cart(request):
     cart_items = []
     total = 0
     product_count = 0
-    delivery = Decimal(10.00)
+    delivery = Decimal(settings.DELIVERY_COST)
     grand_total = total + delivery
     cart = request.session.get('cart', {})
     total_number_of_items = 0

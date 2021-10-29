@@ -136,9 +136,6 @@ h1 {
     top: 66px;
     z-index: 99999999999;
 }
-.toast-body {
-    text-shadow: 2px 2px 3px rgb(53, 53, 53);
-}
 /** Specific styling for procuts **/
 .filter-sort-button {
     background-color: #F0AE0E;
