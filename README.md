@@ -76,6 +76,8 @@ The wireframes can be accessed here https://www.figma.com/file/PLCjxfbqNyHkBnTBQ
 
 The Owery Joinery website is run on a relational database.
 
+<img src="media/database.jpg" >
+
 ## Framework
 
 # Future Improvements
