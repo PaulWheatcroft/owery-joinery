@@ -100,7 +100,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'owery_joinery.wsgi.application'
 
 
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SIGNUP_REDIRECT_URL = "/profiles/"

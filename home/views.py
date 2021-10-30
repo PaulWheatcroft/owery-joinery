@@ -7,6 +7,11 @@ def error_404_view(request, exception):
     return render(request, '404.html')
 
 
+def error_4500_view(request, exception):
+    """ A view to return a 500 page when debug is false """
+    return render(request, '500.html')
+
+
 def index(request):
     """ A view to return the index page """
 
