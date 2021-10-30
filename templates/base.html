@@ -2,31 +2,24 @@
 
 <!doctype html>
 <html lang="en" class="h-100">
+
 <head>
-    {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- need to add the description -->
-    <meta name="description" content="">
-    {% endblock %}
-    <title>Owery Joinery {% block appendtitle %}{% endblock %}</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sticky-footer/">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-    
-    {% block corecss %}
+    <meta name="description" content="ower Joinery. Bespoke, handcrafted kitchens & furniture">
+    <title>Owery Joinery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% endblock %}
-    {% block extracss %}
-    {% endblock %}
     <script src="https://kit.fontawesome.com/e5878dac08.js" crossorigin="anonymous"></script>
     <!-- Favicons and mobile theme colour -->
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
     <meta name="theme-color" content="#F0AE0E">
     <!-- Custom styles for this template -->
 </head>
+
 <body class="d-flex flex-column h-100">
     {% include 'includes/header.html' %}
     {% if messages %}
@@ -45,7 +38,7 @@
                 {% include 'includes/toasts/toast-info.html' %}
                 {% endif %}
                 {% endwith %}
-            </div>            
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -67,6 +60,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
+    <!-- Initialise Bootstrap Toasts -->
     <script type="text/javascript">
         window.onload = (event) => {
             event.preventDefault()
@@ -74,7 +68,7 @@
             let bsAlert = new bootstrap.Toast(myAlert);
             if (document.querySelector(".toast")) {
                 bsAlert.show();
-            }     
+            }
         };
     </script>
     <script src="https://js.stripe.com/v3/"></script>
@@ -82,4 +76,5 @@
     {% block extrajs %}
     {% endblock %}
 </body>
+
 </html>

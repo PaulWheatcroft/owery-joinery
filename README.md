@@ -80,6 +80,15 @@ The Owery Joinery website is run on a relational database.
 
 ## Framework
 
+Django
+
+# Testing
+## HTML
+All pages have been tested through https://validator.w3.org/ without issue
+
+## Python
+No errors highlighted through http://pep8online.com/
+
 # Future Improvements
 - Profiles to store addresses
 - Implement social media login
@@ -87,6 +96,11 @@ The Owery Joinery website is run on a relational database.
 - Search is very crude. Would be better to implement a third party such as Haystack
 
 # Acknowledgements
+Massive thanks to my Mentor Adegbenga Adeye for his professional view throughout the project and pushing me to to better :-)
+
+Also a huge thanks to the tutors a Code Institue for being there when I needed them abd for them being able to always point me in the right direction.
+
+Thanks to https://www.goranstimac.com/ for his video tutorial on setting up Bootstrap 5 toasts https://www.goranstimac.com/blog/2021/07/how-to-add-bootstrap-5-toast-on-page-load/
 
 # Testing
 ## HTML
