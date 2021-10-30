@@ -22,7 +22,7 @@ Working with the owner of Owery Joinery the following personas and user stories 
 >
 
 - As a first time visitor to the Owery website, I want to be able to…
- - View a list of all products. So that I can select something to buy.
+ - View a list of products. So that I can select something to buy.
  - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
  - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like, to buy.
  - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
@@ -31,8 +31,8 @@ Working with the owner of Owery Joinery the following personas and user stories 
  - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
  - Easily register for an account. So that I can have a personalised account to view my profile.
  - Receive and email once I have registered to verify my account was set up.
- - Easily view the value of my shopping bag anywhere on the website. So that I can understand how much I have selected.
- - Easily view a summary of what's in my shopping bag, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
+ - Easily view the value of my shopping cart anywhere on the website. So that I can understand how much I have selected.
+ - Easily view a summary of what's in my shopping cart, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
  - Check out and purchase my items without having to log in. So that I can conveniently purchase items quickly.
  - Receive confirmation of an order via email. So that I can easily reference my order.
  - Easily view the contact details for the company. So I can contact Owery about my orders or requirements.
@@ -104,6 +104,78 @@ Amazon Web Services was used to facilitate the delivery of application'sStatic c
 A Gmail account has been configured to facilitate the ability to send emails
 
 # Testing
+
+## User Story Testing
+
+>
+> As a first time visitor to the Owery website, I want to be able to…
+>
+- View a list of products. So that I can select something to buy.
+    - Upon navigating to the website the user is presented with a clean site containing imagery and text that indicates that this is a site that sells wood crafted products.
+    - The 6 categories that contain the products each have a card containing an image with a shop now button. This highlights what type of products are available.
+ - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
+    - The categry cards on the home page make it easy to navingate to product list filtered to the category speified.
+    - On the top navigation there is also a menu item to Products. When this is click the list of categories is also viewed.
+ - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like.
+    - On any product page there is a filter and sort component.
+    - The customer can specifically tailor a search to their requirements.
+ - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
+    - Eack product when listed has some details available to view withough needing to look at further details.
+    - However each product also has an obvious View Details button. When clicked this takes the customer to a dedicated product details page that contains the items specific details.
+ - See if there are any special offers. So that I can make an informed purchased based on price.
+    - Any items that are on special offer highlight this by stating that it is a Special Offer! and to View Details in a red button that is distinctive from other products not on offer.
+ - Sort the view of products by price low to high. So that I can make an informed purchased based on price.
+    - All pages showing lists of product can be order on price of which an option is low to high.
+ - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
+     - All pages showing lists of product can be order on price of which an option is high to low.
+ - Easily register for an account. So that I can have a personalised account to view my profile.
+    - If the customer wishes to create an account by clicking the Account item on the menu they are presented with an option to register.
+    - The sign in process is very simple.
+ - Receive and email once I have registered to verify my account was set up.
+    - An emal is sent to the newly registered customer so they can be assured the account is set up correctly.
+ - Easily view the value of my shopping cart anywhere on the website. So that I can understand how much I have selected.
+    - The shopping cart icon is displayed on the navigation bar at all time including on a mobile device. The icon give a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
+    - A sticky navigation bar ensures the shopping cary icon is accesible even when scrolling down a page.
+ - Easily view a summary of what's in my shopping cart, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
+    - The shopping cart icon is displayed on the navigation bar at all time including on a mobile device. The icon give a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
+    - A sticky navigation bar ensures the shopping cary icon is accesible even when scrolling down a page.
+ - Check out and purchase my items without having to log in. So that I can conveniently purchase items quickly.
+    - The application is configured so a customer does not need to register with the website
+ - Receive confirmation of an order via email. So that I can easily reference my order.
+    - Once an order is complete they are directed to a confirmation pages outlining the details of their order and the order number. An email is also sent to the email address they provided.
+ - Easily view the contact details for the company. So I can contact Owery about my orders or requirements.
+    - On the navigation bat there is a menu item clls contact. Clicking this navigates the customer a page that displays the vaious way in which the business can be contacted.
+
+>
+> As someone who is registered with the Owery website, I want to be able to…
+>
+ - Be able to effortlessly log in to the site. So that I can to access my profile to view my orders.
+    - When a user visits the site by clicking Accounts on the navigation bar they are presented with the option to login
+ - Be able to effortlessly log out of the site, to keep my account secure.
+    - When the user wishes to log out of the site they can again click on the Accounts item in the menu and then select Logout
+ - Easily recover my password if I forget it. So that I can recover my access to my profile.
+ - Have a personalised profile so that I can view my order history.
+ - Checkout and add for the order to be added to my profile. So that I can review my purchases at a later date.
+ - Track the status of my order. So that I can check the progress or my order.
+    
+>
+> Business Owner
+>
+- As a superuser of Owery, I want to be able to...
+ - Add new products. So that I can add new items to the product catalogue myself.
+ - Amend current products details. So that I can change products in the catalogue myself.
+ - Remove products from the catalogue. So that I can keep the product catalogue current.
+ - Set a product to discontinued. So that I can keep the product catalogue current without deleting the product.
+ - Set a product to on offer. So I can highlight products where the price has been reduced.
+ - Set the job status of an order based on business processes. So that the customer and workshop can see the work schedule and progress.
+ - Print off an order. So that I can pass this to the workshop to progress the order.
+
+>
+> Workshop Worker
+>
+- As a workshop worker, I want to be able to...
+ - View all orders of a specific status so I can see my workload
+ - Change the status of an order, to pass the order to the next business process step
 
 ## Automated URL Testing
 
@@ -353,6 +425,8 @@ You can now deploy the application from your GitHub repository. In Heroku
 
 This will take serveral minutes as Heroku installs the components outlined in requirements.txt. Once you you can open the app.
 
+# Bugs
+- When partway down a product page adding an item to the cart jupms you back to the top of the page. This is a limitation of the way Python and Django work. Using JavaScript would be a better experience.
 
 # Future Improvements
 - Profiles to store addresses
@@ -367,10 +441,5 @@ Also a huge thanks to the tutors a Code Institute for being there when I needed 
 
 Thanks to https://www.goranstimac.com/ for his video tutorial on setting up Bootstrap 5 toasts https://www.goranstimac.com/blog/2021/07/how-to-add-bootstrap-5-toast-on-page-load/
 
-# Testing
-## HTML
-All pages have been tested through https://validator.w3.org/ without issue
 
-## Accepted Errors
-Class 'Xxxxxx' has no 'objects' member pylint(no-member)
 
