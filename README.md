@@ -81,6 +81,8 @@ The Owery Joinery website is run on a relational database.
 ## Framework
 
 # Future Improvements
+- Profiles to store addresses
+- Implement social media login
 - Print button captures the whole window. This could be made much neater
 - Search is very crude. Would be better to implement a third party such as Haystack
 
