@@ -11,7 +11,7 @@ class Category(models.Model):
         """
         verbose_name_plural = 'Categories'
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=False, blank=False)
     friendly_name = models.CharField(max_length=50)
     image = models.ImageField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
@@ -28,7 +28,7 @@ class Style(models.Model):
     """
     product style
     """
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=False, blank=False)
     friendly_name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -41,11 +41,14 @@ class Style(models.Model):
 class Product(models.Model):
     """ product details """
     category = models.ForeignKey(
-        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+        'Category', null=False, blank=False, default=1,
+        on_delete=models.SET_DEFAULT)
     style = models.ForeignKey(
         'Style', null=True, blank=True, on_delete=models.SET_NULL)
-    name = models.CharField(max_length=50)
-    sku = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=False,
+                            blank=False)
+    sku = models.CharField(max_length=50, null=False,
+                           blank=False)
     description = models.TextField()
     is_offer = models.BooleanField(default=False)
     is_discontinued = models.BooleanField(default=False)
