@@ -4,7 +4,7 @@
 
 Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic their users have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
 
-<img src="media/owery-menu.jpg" style="margin: 0;">
+<img src="media/owery-menu.png" style="margin: 0;">
 
 >
 > The purpose of this project was to create a functional e-commerce site to replace the current static site.
@@ -118,6 +118,10 @@ Owery Joinery supplied their corporate colour scheme and logo for this project.
 A mobile first approach defined the layout of the site. Bootstrap was used extensively for layout control.
 
 A sticky menu was chosen to ensure easy access to navigate the website.
+
+I chose the term cart over bag as research suggests humans identify a cart as something you put items in temporarily as opposed to a bag which is what you take items away in.
+
+The Admin Tools were designed for a desktop view.
 
 # Testing
 
