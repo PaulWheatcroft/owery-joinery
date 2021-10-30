@@ -87,13 +87,21 @@ The Owery Joinery website is run on a relational database.
 
 For this project the Heroku PostgreSQL add-on was used.
 
-## Framework
+## Application
 
-Django
+The Django framework provided the application structure that the website was built on to enable an MVC design pattern approach to the application.
 
-## Content Delivery
+### IAM
 
-AWS
+One of the great advantages of Django is the Ideantity and Access Management capability that it come with out of the box. This was extended bu utilising the Allauth app.
+
+### Static File Delivery
+
+Amazon Web Services was used to facilitate the delivery of application'sStatic content. An S3 Bucket was configured for this purpose.
+
+### Email
+
+A Gmail account has been configured to facilitate the ability to send emails
 
 # Testing
 
@@ -105,11 +113,246 @@ Django SimpleTestCase was used to automate the testing of the Django URLS used i
 
 The remained of the functional testing was carried out manually.
 
+The was done extensively and throught the build to ensure that the funtionality met the expected outcomes.
+The testing sheet can be view here [Funtional Testing](Testing.xlsx)
+
 ## HTML
 All pages have been tested through https://validator.w3.org/ without issue
 
 ## Python
 No errors highlighted through http://pep8online.com/
+
+# Deployment
+
+## To contribute to the project
+
+- Navigate to the Owery Joinery repository page in GitHub https://github.com/PaulWheatcroft/owery-joinery
+- In the top right corner click Fork
+- This creates a copy in your GitHub repository
+- From here you could open in Gitpod or make changes directly in GitHub. Once completed click New Push Request to submit your changes to be merged with the master branch
+
+## Clone and Run Locally
+
+You can find the clone string for the repository in Code button above the project’s files. Most IDE applications have a GUI interface for cloning a GitHub repository from this string.
+
+Alternatively the repository can be cloned from the terminal of your IDE
+- Open the terminal
+- Change the current working directory to the location where you want the cloned directory
+- Type git clone, and then paste the URL you copied earlier. git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+- Press Enter to create the local clone
+Once the clone has completed (through either method) you should see a requirements.txt file in the route of the directory.
+- In the terminal run pip install -r requirements.txt
+
+The inbuilt Django sqlite3 database will run as a default until you reconfigure this once deployed to Heroku.
+
+It’s advisable to set up the DJANGO_SECRET_KEY as an environment variable rather than leave it exposed in settings.py.
+
+## Stripe
+
+You will need to configure your payment service provider. This project has been set up using Stripe and that will have installed as part of requirements.txt. This project has used the following environment variables to store the keys necessary to run Stripe and make use of their webhook capability. Further documentation of
+
+To set up an account got to https://stripe.com/
+- Click start now
+- Create your stripe account
+- Log in and click on Developers
+- Click on API Keys
+- •Create two following variables both in settings.py and the same two variable names in your environment variables.
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+- Store the Stripe Publishable key in STRIPE_PUBLIC_KEY in the environment variables and link this to your variable in settings.py: STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '') While strictly speaking this isn’t necessary as the key is public it’s still good practice.
+- Store the Stripe Secret key in STRIPE_SECRET_KEY in the environment variables and link this to your variable in settings.py: STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+- Now click on Webhooks in Stripe
+- Click Add an endpoint
+- When you have configured the endpoint get the Signing secret and store this in another variable STRIPE_WH_SECRET. Again create an environment variable to store the key and link this to the variable in settings.py: STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
+The application has been configured for the UK market. Also in settings.py add the following STRIPE_CURRENCY = 'gbp'
+
+At this point content delivery does not need to be configured as this will be served locally through the standard Django file structure.
+You should now be able to run the website from your local environment.
+
+# Deploying to Heroku
+
+- To deploy to Heroku https://www.heroku.com/
+- Log in with your account
+- Select New
+- Then Create new app
+- Give your app a unique name and choose your local region
+- Then click Create app
+
+Once created for the following steps you will need to have access to Settings and to Reveal Config Vars sectin of your app
+
+## Postgres
+
+This project has been configured using the Heroku Postgres add-on. If you plan on also using this add-on…
+- Go to the resources tab in Heroku.
+- In the Add-ons search bar look for Heroku Postgres and then click on it to select it
+- Choose the Hobby Dev-Free option in plans.
+- Click submit order form.
+
+By clicking on the add-on when displayed on the Resources page you will be taken to the datastores page for the database. Click on settings then View Credentials to get the URI path that will be added to the DATABASE_URL variable (see below
+
+## AWS S3 Bucket
+
+An AWS S3 Bucket is used to store the projects static files. Because of how Django works you will also need to configure external storage when deploying to Heroku. To use AWS
+- Sign up for an AWS account at https://portal.aws.amazon.com/
+- Unless otherwise set this up as a personal account
+- Navigate to the AWS Management Console as Root user
+- Search and click on S3
+- Create a bucket
+- Give your bucket a name and choose a region based on your geographical requirements
+- Uncheck Block all public access to enable public access
+- Acknowledge the current settings
+- Click to create the bucket
+- Open the bucket you created
+- Select Properties tab and turn on static website hosting (bottom of the page)
+    - Edit
+    - Enable
+    - Set Index document to index.html
+    - Set Error document to error.html
+    - Save changes
+- Copy the Amazon Resource Name (ARN)
+- Click on the Permissions tab and navigate to Cross-origin resource sharing (CORS) and add the following
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+- In the Bucket Policy click Edit then Policy Generator
+    - This open a separate window
+- Step 1: is S3 Bucket Policy
+- Step 2: add the following settings:
+    - Effect: Allow
+    - Principal: *
+    - Actions: GetObject
+    - ARN: The Amazon Resource Name (ARN)
+- Click on Add Statement.
+- Click on Generate Policy
+- Copy the policy from the popup that appears
+- Paste the generated policy into the Bucket Policy
+- Add '/*' at the end of the Resource key, and save.
+- Navigate to the Access control list (ACL) and select List next to Everyone
+
+## AWS IAM
+
+- Search and click on IAM
+- Staring on the left of the screen navigate to User Groups
+- Create group
+- Give your group a name and click create group
+- Again on the left of the navigate Policies
+    - Create New Policy
+    - JSON tab
+    - Import Managed Policy and search for S3
+    - Select AmazonS3FullAccess and click Import
+- Within "Resource" replace * with your [ARN address and ARN address/]
+"Resource": [
+    "ARN",
+    "ARN/*"
+]
+
+- Click Next: Tags
+- Click Next: Review and provide a name
+- Click create policy
+- Back on the left-hand side go to User Groups
+    - Open your group
+    - Permissions
+    - Add Permissions
+    - Attach Policies
+    - Search for your policy and add it
+- Back on the left-hand side click Users
+    - Add user
+    - Add a user name
+    - Select Access key - Programmatic access
+    - Click Next
+    - Select your user group
+    - Click Next: Tags then Next: Review then Create User
+    - IMPORTANT THIS IS THE ONLY TIME YOU CAN COMPLETE THIS STEP. Download tHE Download.CSV which contains the information you need for the variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Vreate both of these environment variables.
+You can now configure the following in settings.py
+AWS_STORAGE_BUCKET_NAME = 'your bucket name'
+AWS_S3_REGION_NAME = ‘your region’
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+# Static and media files
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
+
+# Override static and media URLs in production
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+# Gmail
+
+Email will print to the console unless you set up your own email account.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'your.email@example.com'
+
+For this project gmail was used. To use Gmail log in to your account and go to
+- All Settings
+- Other Google Account settings
+- Security (new tab opens)
+- Ensure the 2 Step Verification is on
+- Now click on App Password and log in
+- Set App to Mail
+- Device to Other and name it Django
+- A 16-digit number will be generated. Copy this and create the following environment variables
+
+
+EMAIL_HOST_PASS *with the 16-digit code*
+EMAIL_HOST_USER *your Gmail account*
+DEFAULT_FROM_EMAIL *your applications email address*
+
+The following can now be configured in settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+## Heroku Config Vars
+
+To recap the Heroku app’s Config Vars should be
+
+DJANGO_SECRET_KEY
+STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY
+STRIPE_WH_SECRET
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+USE_AWS
+DATABASE_URL
+EMAIL_HOST_PASS
+EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL
+
+You can now add
+
+USE_AWS = True
+DISABLE_COLLECTSTATIC = 0
+
+# Deploy
+
+You can now deploy the application from your GitHub repository. In Heroku
+- Deploy and click on Connect to GitHub
+- Authenticate to your GitHub repositories and select the correct GitHub repository for this project.
+- Click on Deploy Branch to make the application available publicly through Heroku
+
+This will take serveral minutes as Heroku installs the components outlined in requirements.txt. Once you you can open the app.
+
 
 # Future Improvements
 - Profiles to store addresses
