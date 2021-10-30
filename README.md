@@ -2,7 +2,7 @@
 
 <img src="media/mockup-header.jpg" style="margin: 0;">
 
-Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic their customers have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
+Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic their users have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
 
 >
 > The purpose of this project was to create a functional e-commerce site to replace the current static site.
@@ -57,7 +57,7 @@ Working with the owner of Owery Joinery the following personas and user stories 
  - Remove products from the catalogue. So that I can keep the product catalogue current.
  - Set a product to discontinued. So that I can keep the product catalogue current without deleting the product.
  - Set a product to on offer. So I can highlight products where the price has been reduced.
- - Set the job status of an order based on business processes. So that the customer and workshop can see the work schedule and progress.
+ - Set the job status of an order based on business processes. So that the user and workshop can see the work schedule and progress.
  - Print off an order. So that I can pass this to the workshop to progress the order.
 
 >
@@ -110,72 +110,95 @@ A Gmail account has been configured to facilitate the ability to send emails
 >
 > As a first time visitor to the Owery website, I want to be able to…
 >
-- View a list of products. So that I can select something to buy.
+ - View a list of products. So that I can select something to buy.
     - Upon navigating to the website the user is presented with a clean site containing imagery and text that indicates that this is a site that sells wood crafted products.
     - The 6 categories that contain the products each have a card containing an image with a shop now button. This highlights what type of products are available.
+    - The user can also navigateto the Product menu item and then see links to All Products
+    - When the user has seen a product they wish to purchase they simply click on the Add to Cart button.
+    - Or if the user is in the details of the product they can click on an Add to Cart button there too.
  - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
-    - The categry cards on the home page make it easy to navingate to product list filtered to the category speified.
-    - On the top navigation there is also a menu item to Products. When this is click the list of categories is also viewed.
+    - The category cards on the home page make it easy to navigate to product list filtered to the category specified.
+    - On the top navigation there is also a menu item to Products. When this is clicked the list of categories is also viewed.
  - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like.
     - On any product page there is a filter and sort component.
-    - The customer can specifically tailor a search to their requirements.
+    - The user can specifically tailor a search to their requirements.
  - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
-    - Eack product when listed has some details available to view withough needing to look at further details.
-    - However each product also has an obvious View Details button. When clicked this takes the customer to a dedicated product details page that contains the items specific details.
+    - Take make this a little quicker, when listed each product has some details available to view without needing to look at further details.
+    - However each product also has an obvious View Details button. When clicked this takes the user to a dedicated product details page that contains the items specific details.
  - See if there are any special offers. So that I can make an informed purchased based on price.
     - Any items that are on special offer highlight this by stating that it is a Special Offer! and to View Details in a red button that is distinctive from other products not on offer.
  - Sort the view of products by price low to high. So that I can make an informed purchased based on price.
-    - All pages showing lists of product can be order on price of which an option is low to high.
+    - All pages showing lists of products can be order on price of which an option is low to high.
  - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
-     - All pages showing lists of product can be order on price of which an option is high to low.
+     - All pages showing lists of products can be order on price of which an option is high to low.
  - Easily register for an account. So that I can have a personalised account to view my profile.
-    - If the customer wishes to create an account by clicking the Account item on the menu they are presented with an option to register.
+    - If the user wishes to create an account by clicking the Account item on the menu they are presented with an option to register.
     - The sign in process is very simple.
  - Receive and email once I have registered to verify my account was set up.
-    - An emal is sent to the newly registered customer so they can be assured the account is set up correctly.
+    - An email is sent to the newly registered user so they can be assured the account is set up correctly.
  - Easily view the value of my shopping cart anywhere on the website. So that I can understand how much I have selected.
-    - The shopping cart icon is displayed on the navigation bar at all time including on a mobile device. The icon give a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
-    - A sticky navigation bar ensures the shopping cary icon is accesible even when scrolling down a page.
+    - The shopping cart icon is displayed on the navigation bar at all times including on a mobile device. The icon displays a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
+    - A sticky navigation bar ensures the shopping cart icon is accessible even when scrolling down a page.
  - Easily view a summary of what's in my shopping cart, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
-    - The shopping cart icon is displayed on the navigation bar at all time including on a mobile device. The icon give a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
-    - A sticky navigation bar ensures the shopping cary icon is accesible even when scrolling down a page.
+    - The shopping cart icon is displayed on the navigation bar at all times including on a mobile device. The icon displays a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
+    - A sticky navigation bar ensures the shopping cart icon is accessible even when scrolling down a page.
  - Check out and purchase my items without having to log in. So that I can conveniently purchase items quickly.
-    - The application is configured so a customer does not need to register with the website
+    - The application is configured so a user does not need to register with the website
  - Receive confirmation of an order via email. So that I can easily reference my order.
     - Once an order is complete they are directed to a confirmation pages outlining the details of their order and the order number. An email is also sent to the email address they provided.
  - Easily view the contact details for the company. So I can contact Owery about my orders or requirements.
-    - On the navigation bat there is a menu item clls contact. Clicking this navigates the customer a page that displays the vaious way in which the business can be contacted.
+    - On the navigation bar there is a menu item called contact. Clicking this navigates the user a page that displays the various way in which the business can be contacted.
 
 >
 > As someone who is registered with the Owery website, I want to be able to…
 >
- - Be able to effortlessly log in to the site. So that I can to access my profile to view my orders.
-    - When a user visits the site by clicking Accounts on the navigation bar they are presented with the option to login
+ - Be able to effortlessly log in to the site. So that I can access my profile to view my orders.
+    - When a user visits the site by clicking Accounts on the navigation bar they are presented with the option to login.
  - Be able to effortlessly log out of the site, to keep my account secure.
-    - When the user wishes to log out of the site they can again click on the Accounts item in the menu and then select Logout
+    - When the user wishes to log out of the site  by click on the Accounts item in the menu and then select Logout.
  - Easily recover my password if I forget it. So that I can recover my access to my profile.
+    - If the user is unable to remember the password for their account then this can be reset by clicking on the Forgot password button.
+    - A reset link is emailed to their account.
+    - Clicking on this link takes them to a page that enables them to reset their password.
  - Have a personalised profile so that I can view my order history.
+    - A user's profile is easily access by clicking on Accounts in the navigation menu then selecting profile. This shows a list of previous orders where they can quickly see the order number, the order date, the order amount and the order status
+    - Clicking on the Order Details button takes them to a page where they can view all the details of the order including the individual items purchased.
  - Checkout and add for the order to be added to my profile. So that I can review my purchases at a later date.
+    - As a registered user the order is automatically added to their profile.
  - Track the status of my order. So that I can check the progress or my order.
+    - The reason for creating a profile is so a user can conveniently store their purchase history information. This also means they can track the status of their order through the workshop.
     
 >
-> Business Owner
+> Business Owner - As a superuser of Owery, I want to be able to...
 >
-- As a superuser of Owery, I want to be able to...
  - Add new products. So that I can add new items to the product catalogue myself.
+    - If an account is a superuser of the site they will have the facility to add products to the catalogue. This is access by clicking on the Admin Tools item in the menu then selecting Add Products.
+    - A very simple for is presented that makes it simple to add a new product.
  - Amend current products details. So that I can change products in the catalogue myself.
+    - A superuser can easily amend a product by simple finding it in on of the product catalogue views be that filtered or all products and clicking on the Edit button.
+    - They will then be presented with the Edit Product form. From here they can amend and save the product's details.
  - Remove products from the catalogue. So that I can keep the product catalogue current.
+    - A superuser can easily delete a product item from the database by finding it in one of the product views be that filtered or all products and clicking on the Edit button.
+    They will then be presented with the Edit Product form. From here they can click Delete Product button to delete the product from the database. 
  - Set a product to discontinued. So that I can keep the product catalogue current without deleting the product.
+    - If the superuser wishes to just set the product to discontinued instead of deleting the product they can by editing the product and ticking is_discontinued.
  - Set a product to on offer. So I can highlight products where the price has been reduced.
- - Set the job status of an order based on business processes. So that the customer and workshop can see the work schedule and progress.
+    - If the superuser wishes to set the product as being on offer they can by editing the product and ticking is_discontinued.
+ - Set the job status of an order based on business processes. So that the user and workshop can see the work schedule and progress.
+    - A super user can easily set the status of an order by simply navigating to it through the Admin Tools' Orders page. From here they can click to view the details of the order. The status of the order is a dropdown and the superuser is able to click and change this status to the required status.
+    - The orders page can be searched for by either first name or last name.
+    - The orders can also be filtered by current order status.
  - Print off an order. So that I can pass this to the workshop to progress the order.
+    - Whilst in the details of an order a Superuser can print off the order by clicking on the Print button.
 
 >
-> Workshop Worker
+> As a workshop worker, I want to be able to...
 >
-- As a workshop worker, I want to be able to...
- - View all orders of a specific status so I can see my workload
- - Change the status of an order, to pass the order to the next business process step
+ - View all orders of a specific status so I can see my workload.
+    - As a staff member they are able navigate to the Orders page via the Admin Tool link in the site navigation menu.
+    - Here they have a view of all orders. Using the Search bar at the top of the orders the job status can be filtered to show the status required.
+ - Change the status of an order, to pass the order to the next business process step.
+    - As a staff member they are able to view the details of an order and from there change the status of the order by clicking on the status which open a drop-down box  contain the available status categories. Selecting the one they want and saving the changes.
 
 ## Automated URL Testing
 
@@ -188,11 +211,22 @@ The remained of the functional testing was carried out manually.
 The was done extensively and throught the build to ensure that the funtionality met the expected outcomes.
 The testing sheet can be view here [Funtional Testing](Testing.xlsx)
 
+A code review was completed with my course mentor.
+
+## User Testing
+
+A code review was posted in the Code Institute peer-code-review channel.
+
+A group of friends and family took part in user testing.
+
 ## HTML
 All pages have been tested through https://validator.w3.org/ without issue
 
+## CSS
+CSS was validated through https://jigsaw.w3.org/css-validator withour issues
+
 ## Python
-No errors highlighted through http://pep8online.com/
+No errors were highlighted through http://pep8online.com/
 
 # Deployment
 
@@ -441,5 +475,5 @@ Also a huge thanks to the tutors a Code Institute for being there when I needed 
 
 Thanks to https://www.goranstimac.com/ for his video tutorial on setting up Bootstrap 5 toasts https://www.goranstimac.com/blog/2021/07/how-to-add-bootstrap-5-toast-on-page-load/
 
-
+https://smartmockups.com/ was used for the image in the README
 
