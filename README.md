@@ -4,6 +4,8 @@
 
 Owery have designed and hand-crafted kitchens, furniture, doors, windows for decades, however through the pandemic their users have been increasingly asking them to create home finishing products, skirting, architrave etc. This led them to opening their own online eBay shop fronted by their own static website.
 
+<img src="media/owery-menu.jpg" style="margin: 0;">
+
 >
 > The purpose of this project was to create a functional e-commerce site to replace the current static site.
 >
@@ -83,7 +85,7 @@ The wireframes can be accessed here https://www.figma.com/file/PLCjxfbqNyHkBnTBQ
 
 The Owery Joinery website is run on a relational database.
 
-<img src="media/database.jpg" >
+<img src="media/database.jpg" style="margin: 0;">
 
 For this project the Heroku PostgreSQL add-on was used.
 
@@ -103,6 +105,20 @@ Amazon Web Services was used to facilitate the delivery of application'sStatic c
 
 A Gmail account has been configured to facilitate the ability to send emails
 
+# Design Choices
+
+Owery Joinery supplied their corporate colour scheme and logo for this project.
+
+| Description | Hex Colour Value |
+| --- | ----------- |
+| Owery dark brown/grey  | ##383533 |
+| Owery yellow | #F0AE0E |
+| Lighter yellow for the main content areas | #FFDD8B |
+
+A mobile first approach defined the layout of the site. Bootstrap was used extensively for layout control.
+
+A sticky menu was chosen to ensure easy access to navigate the website.
+
 # Testing
 
 ## User Story Testing
@@ -110,6 +126,13 @@ A Gmail account has been configured to facilitate the ability to send emails
 >
 > As a first time visitor to the Owery website, I want to be able to…
 >
+
+<img src="media/UST1.jpg" style="margin: 0;">
+
+<img src="media/UST1-1.jpg" style="margin: 0;">
+
+<img src="media/UST1-2.jpg" style="margin: 0;">
+
  - View a list of products. So that I can select something to buy.
     - Upon navigating to the website the user is presented with a clean site containing imagery and text that indicates that this is a site that sells wood crafted products.
     - The 6 categories that contain the products each have a card containing an image with a shop now button. This highlights what type of products are available.
@@ -119,39 +142,68 @@ A Gmail account has been configured to facilitate the ability to send emails
  - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
     - The category cards on the home page make it easy to navigate to product list filtered to the category specified.
     - On the top navigation there is also a menu item to Products. When this is clicked the list of categories is also viewed.
+
+<img src="media/2.jpg" style="margin: 0;">
+
  - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like.
     - On any product page there is a filter and sort component.
     - The user can specifically tailor a search to their requirements.
+
+<img src="media/UST3.jpg" style="margin: 0;">
+
  - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
     - Take make this a little quicker, when listed each product has some details available to view without needing to look at further details.
     - However each product also has an obvious View Details button. When clicked this takes the user to a dedicated product details page that contains the items specific details.
+
+<img src="media/UST4.jpg" style="margin: 0;">
+
+<img src="media/UST5.jpg" style="margin: 0;">
+
  - See if there are any special offers. So that I can make an informed purchased based on price.
     - Any items that are on special offer highlight this by stating that it is a Special Offer! and to View Details in a red button that is distinctive from other products not on offer.
+
+<img src="media/UST6.jpg" style="margin: 0;">
+
  - Sort the view of products by price low to high. So that I can make an informed purchased based on price.
     - All pages showing lists of products can be order on price of which an option is low to high.
  - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
      - All pages showing lists of products can be order on price of which an option is high to low.
+
+<img src="media/UST7.jpg" style="margin: 0;">
+
  - Easily register for an account. So that I can have a personalised account to view my profile.
     - If the user wishes to create an account by clicking the Account item on the menu they are presented with an option to register.
     - The sign in process is very simple.
  - Receive and email once I have registered to verify my account was set up.
     - An email is sent to the newly registered user so they can be assured the account is set up correctly.
+
+<img src="media/UST8.jpg" style="margin: 0;">
+
  - Easily view the value of my shopping cart anywhere on the website. So that I can understand how much I have selected.
     - The shopping cart icon is displayed on the navigation bar at all times including on a mobile device. The icon displays a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
     - A sticky navigation bar ensures the shopping cart icon is accessible even when scrolling down a page.
  - Easily view a summary of what's in my shopping cart, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
     - The shopping cart icon is displayed on the navigation bar at all times including on a mobile device. The icon displays a running total of items in the cart. Clicking on the cart shows a full breakdown of what is in the cart. This includes the cost of item and then a total cost.
     - A sticky navigation bar ensures the shopping cart icon is accessible even when scrolling down a page.
+
+<img src="media/UST9.jpg" style="margin: 0;">
+
  - Check out and purchase my items without having to log in. So that I can conveniently purchase items quickly.
     - The application is configured so a user does not need to register with the website
  - Receive confirmation of an order via email. So that I can easily reference my order.
     - Once an order is complete they are directed to a confirmation pages outlining the details of their order and the order number. An email is also sent to the email address they provided.
+
+<img src="media/UST10.jpg" style="margin: 0;">
+
  - Easily view the contact details for the company. So I can contact Owery about my orders or requirements.
     - On the navigation bar there is a menu item called contact. Clicking this navigates the user a page that displays the various way in which the business can be contacted.
 
 >
 > As someone who is registered with the Owery website, I want to be able to…
 >
+
+<img src="media/UST11.jpg" style="margin: 0;">
+
  - Be able to effortlessly log in to the site. So that I can access my profile to view my orders.
     - When a user visits the site by clicking Accounts on the navigation bar they are presented with the option to login.
  - Be able to effortlessly log out of the site, to keep my account secure.
@@ -160,20 +212,37 @@ A Gmail account has been configured to facilitate the ability to send emails
     - If the user is unable to remember the password for their account then this can be reset by clicking on the Forgot password button.
     - A reset link is emailed to their account.
     - Clicking on this link takes them to a page that enables them to reset their password.
+
+<img src="media/UST12.jpg" style="margin: 0;"> 
+
  - Have a personalised profile so that I can view my order history.
     - A user's profile is easily access by clicking on Accounts in the navigation menu then selecting profile. This shows a list of previous orders where they can quickly see the order number, the order date, the order amount and the order status
     - Clicking on the Order Details button takes them to a page where they can view all the details of the order including the individual items purchased.
+
+<img src="media/UST13.jpg" style="margin: 0;">
+
  - Checkout and add for the order to be added to my profile. So that I can review my purchases at a later date.
     - As a registered user the order is automatically added to their profile.
+
+<img src="media/UST14.jpg" style="margin: 0;">
+
  - Track the status of my order. So that I can check the progress or my order.
     - The reason for creating a profile is so a user can conveniently store their purchase history information. This also means they can track the status of their order through the workshop.
     
 >
 > Business Owner - As a superuser of Owery, I want to be able to...
 >
+
+<img src="media/UST15.jpg" style="margin: 0;">
+
  - Add new products. So that I can add new items to the product catalogue myself.
     - If an account is a superuser of the site they will have the facility to add products to the catalogue. This is access by clicking on the Admin Tools item in the menu then selecting Add Products.
     - A very simple for is presented that makes it simple to add a new product.
+
+<img src="media/UST16.jpg" style="margin: 0;">
+
+<img src="media/UST17.jpg" style="margin: 0;">
+
  - Amend current products details. So that I can change products in the catalogue myself.
     - A superuser can easily amend a product by simple finding it in on of the product catalogue views be that filtered or all products and clicking on the Edit button.
     - They will then be presented with the Edit Product form. From here they can amend and save the product's details.
@@ -184,10 +253,16 @@ A Gmail account has been configured to facilitate the ability to send emails
     - If the superuser wishes to just set the product to discontinued instead of deleting the product they can by editing the product and ticking is_discontinued.
  - Set a product to on offer. So I can highlight products where the price has been reduced.
     - If the superuser wishes to set the product as being on offer they can by editing the product and ticking is_discontinued.
+
+<img src="media/UST18.jpg" style="margin: 0;">
+
  - Set the job status of an order based on business processes. So that the user and workshop can see the work schedule and progress.
     - A super user can easily set the status of an order by simply navigating to it through the Admin Tools' Orders page. From here they can click to view the details of the order. The status of the order is a dropdown and the superuser is able to click and change this status to the required status.
     - The orders page can be searched for by either first name or last name.
     - The orders can also be filtered by current order status.
+
+<img src="media/UST19.jpg" style="margin: 0;">
+
  - Print off an order. So that I can pass this to the workshop to progress the order.
     - Whilst in the details of an order a Superuser can print off the order by clicking on the Print button.
 
@@ -461,6 +536,28 @@ This will take serveral minutes as Heroku installs the components outlined in re
 
 # Bugs
 - When partway down a product page adding an item to the cart jupms you back to the top of the page. This is a limitation of the way Python and Django work. Using JavaScript would be a better experience.
+
+# Technologies
+
+### Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5): Is used to structure the website
+- [CSS3](https://en.wikipedia.org/wiki/CSS): Is used for the styling of the site
+- [Python](https://www.python.org/): Is used to program the functionality of the application
+- [Django template language](https://docs.djangoproject.com/en/3.2/ref/templates/language/) Is used to render the data passed to it in the DOM
+- [JQuery](https://jquery.com/): Is used to facilitate the Stripe payment. Enabling Bootstrap toasts
+
+### Frameworks, Libraries, Databases & Programs Used
+
+- [Django](https://www.djangoproject.com/): Django is used as the application programming framework 
+- [Bootstrap](https://getbootstrap.com/): CSS framework used to speed up design, layout and build of the website 
+- [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): Is used to extend the standard Django User class
+- [Google Fonts](https://fonts.google.com/): Google fonts were used to import the 'Poppins' and 'Nothing You Could Do' fonts
+- [Font Awesome](https://fontawesome.com/): Font Awesome was used icons
+- [Git](https://git-scm.com/): Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub
+- [GitPod](https://www.gitpod.io/): GitPod was used as the initial development environment
+- [GitHub](https://github.com/): GitHub is used to store the projects code after being pushed from Git
+- [Figma](https://www.figma.com/): Figma was used to create the wireframes during the design process
 
 # Future Improvements
 - Profiles to store addresses
