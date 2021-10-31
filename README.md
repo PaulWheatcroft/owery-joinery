@@ -296,7 +296,7 @@ Django SimpleTestCase was used to automate the testing of the Django URLS used i
 The remained of the functional testing was carried out manually.
 
 The was done extensively and throught the build to ensure that the funtionality met the expected outcomes.
-The testing sheet can be view here [Funtional Testing](Testing.xlsx)
+The testing sheet can be view here [Functional Testing](Testing.xlsx)
 
 A code review was completed with my course mentor.
 
