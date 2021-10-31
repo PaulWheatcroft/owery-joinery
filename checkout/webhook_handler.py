@@ -99,8 +99,6 @@ class StripeWH_Handler:
                     content=f'webhook received: {event["type"]} | Error: {e}',
                     status=500)
 
-        # Remove print before submitting
-        print(intent)
         return HttpResponse(
             content=f'webhook received: {event["type"]}',
             status=200)

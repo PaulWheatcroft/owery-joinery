@@ -24,50 +24,50 @@ Working with the owner of Owery Joinery the following personas and user stories 
 >
 
 - As a first time visitor to the Owery website, I want to be able to…
- - View a list of products. So that I can select something to buy.
- - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
- - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like, to buy.
- - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
- - See if there are any special offers. So that I can make an informed purchased based on price.
- - Sort the view of products by price low to high. So that I can make an informed purchased based on price.
- - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
- - Easily register for an account. So that I can have a personalised account to view my profile.
- - Receive and email once I have registered to verify my account was set up.
- - Easily view the value of my shopping cart anywhere on the website. So that I can understand how much I have selected.
- - Easily view a summary of what's in my shopping cart, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
- - Check out and purchase my items without having to log in. So that I can conveniently purchase items quickly.
- - Receive confirmation of an order via email. So that I can easily reference my order.
- - Easily view the contact details for the company. So I can contact Owery about my orders or requirements.
+    - View a list of products. So that I can select something to buy.
+    - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
+    - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like, to buy.
+    - View the details of a product. So that I can understand the details, price and dimensions of a product and also see and image of the product.
+    - See if there are any special offers. So that I can make an informed purchased based on price.
+    - Sort the view of products by price low to high. So that I can make an informed purchased based on price.
+    - Sort the view of products by price high to low. So that I can make an informed purchased based on price.
+    - Easily register for an account. So that I can have a personalised account to view my profile.
+    - Receive and email once I have registered to verify my account was set up.
+    - Easily view the value of my shopping cart anywhere on the website. So that I can understand how much I have selected.
+    - Easily view a summary of what's in my shopping cart, including all prices such as delivery and grand total price before I purchase. So that I can see how much I will be spending.
+    - Check out and purchase my items without having to log in. So that I can conveniently purchase items quickly.
+    - Receive confirmation of an order via email. So that I can easily reference my order.
+    - Easily view the contact details for the company. So I can contact Owery about my orders or requirements.
 
 >
 > Registered Users
 >
 - As someone who is registered with the Owery website, I want to be able to…
- - Be able to effortlessly log in to the site. So that I can to access my profile to view my orders.
- - Be able to effortlessly log out of the site, to keep my account secure.
- - Easily recover my password if I forget it. So that I can recover my access to my profile.
- - Have a personalised profile so that I can view my order history.
- - Checkout and add for the order to be added to my profile. So that I can review my purchases at a later date.
- - Track the status of my order. So that I can check the progress or my order.
+    - Be able to effortlessly log in to the site. So that I can access my profile to view my orders.
+    - Be able to effortlessly log out of the site, to keep my account secure.
+    - Easily recover my password if I forget it. So that I can recover my access to my profile.
+    - Have a personalised profile so that I can view my order history.
+    - Checkout and add for the order to be added to my profile. So that I can review my purchases at a later date.
+    - Track the status of my order. So that I can check the progress or my order.
     
 >
 > Business Owner
 >
 - As a superuser of Owery, I want to be able to...
- - Add new products. So that I can add new items to the product catalogue myself.
- - Amend current products details. So that I can change products in the catalogue myself.
- - Remove products from the catalogue. So that I can keep the product catalogue current.
- - Set a product to discontinued. So that I can keep the product catalogue current without deleting the product.
- - Set a product to on offer. So I can highlight products where the price has been reduced.
- - Set the job status of an order based on business processes. So that the user and workshop can see the work schedule and progress.
- - Print off an order. So that I can pass this to the workshop to progress the order.
+    - Add new products. So that I can add new items to the product catalogue myself.
+    - Amend current products details. So that I can change products in the catalogue myself.
+    - Remove products from the catalogue. So that I can keep the product catalogue current.
+    - Set a product to discontinued. So that I can keep the product catalogue current without deleting the product.
+    - Set a product to on offer. So I can highlight products where the price has been reduced.
+    - Set the job status of an order based on business processes. So that the user and workshop can see the work schedule and progress.
+    - Print off an order. So that I can pass this to the workshop to progress the order.
 
 >
 > Workshop Worker
 >
 - As a workshop worker, I want to be able to...
- - View all orders of a specific status so I can see my workload
- - Change the status of an order, to pass the order to the next business process step
+    - View all orders of a specific status so I can see my workload
+    - Change the status of an order, to pass the order to the next business process step
 
 # Wireframing
 
@@ -95,11 +95,15 @@ The Django framework provided the application structure that the website was bui
 
 ### IAM
 
-One of the great advantages of Django is the Ideantity and Access Management capability that it come with out of the box. This was extended bu utilising the Allauth app.
+One of the great advantages of Django is the Identity and Access Management capability that it come with out of the box. This was extended by utilising the Allauth app.
+
+### Forms
+
+Another advantage of Django is the quantity and quality of 3rd party apps that can be used. For form styling out of the box Crispy Forms was used https://django-crispy-forms.readthedocs.io/en/latest/ 
 
 ### Static File Delivery
 
-Amazon Web Services was used to facilitate the delivery of application'sStatic content. An S3 Bucket was configured for this purpose.
+Amazon Web Services was used to facilitate the delivery of application's Static content. An S3 Bucket was configured for this purpose.
 
 ### Email
 
@@ -123,6 +127,10 @@ I chose the term cart over bag as research suggests humans identify a cart as so
 
 The Admin Tools were designed for a desktop view.
 
+Google font 'Poppins' was used as the sites default font because it complemented the Company’s logo font. 
+
+Google font 'Nothing You Could Do' was used to bring a more casual tone with a craft vibe.
+
 # Testing
 
 ## User Story Testing
@@ -140,7 +148,7 @@ The Admin Tools were designed for a desktop view.
  - View a list of products. So that I can select something to buy.
     - Upon navigating to the website the user is presented with a clean site containing imagery and text that indicates that this is a site that sells wood crafted products.
     - The 6 categories that contain the products each have a card containing an image with a shop now button. This highlights what type of products are available.
-    - The user can also navigateto the Product menu item and then see links to All Products
+    - The user can also navigate to the Product menu item and then see links to All Products
     - When the user has seen a product they wish to purchase they simply click on the Add to Cart button.
     - Or if the user is in the details of the product they can click on an Add to Cart button there too.
  - View a list of specific products of my choosing based their category. So that I can select a particular category of product from a specific list to buy.
@@ -277,7 +285,7 @@ The Admin Tools were designed for a desktop view.
     - As a staff member they are able navigate to the Orders page via the Admin Tool link in the site navigation menu.
     - Here they have a view of all orders. Using the Search bar at the top of the orders the job status can be filtered to show the status required.
  - Change the status of an order, to pass the order to the next business process step.
-    - As a staff member they are able to view the details of an order and from there change the status of the order by clicking on the status which open a drop-down box  contain the available status categories. Selecting the one they want and saving the changes.
+    - As a staff member they are able to view the details of an order and from there change the status of the order by clicking on the status which opens a drop-down box containing the available status categories. Selecting the one they want and saving the changes.
 
 ## Automated URL Testing
 
@@ -302,7 +310,7 @@ A group of friends and family took part in user testing.
 All pages have been tested through https://validator.w3.org/ without issue
 
 ## CSS
-CSS was validated through https://jigsaw.w3.org/css-validator withour issues
+CSS was validated through https://jigsaw.w3.org/css-validator without issues
 
 ## Python
 No errors were highlighted through http://pep8online.com/
@@ -364,7 +372,7 @@ You should now be able to run the website from your local environment.
 - Give your app a unique name and choose your local region
 - Then click Create app
 
-Once created for the following steps you will need to have access to Settings and to Reveal Config Vars sectin of your app
+Once created for the following steps you will need to have access to Settings and to Reveal Config Vars section of your app
 
 ## Postgres
 
@@ -459,7 +467,7 @@ An AWS S3 Bucket is used to store the projects static files. Because of how Djan
     - Click Next
     - Select your user group
     - Click Next: Tags then Next: Review then Create User
-    - IMPORTANT THIS IS THE ONLY TIME YOU CAN COMPLETE THIS STEP. Download tHE Download.CSV which contains the information you need for the variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Vreate both of these environment variables.
+    - IMPORTANT THIS IS THE ONLY TIME YOU CAN COMPLETE THIS STEP. Download tHE Download.CSV which contains the information you need for the variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Create both of these environment variables.
 You can now configure the following in settings.py
 AWS_STORAGE_BUCKET_NAME = 'your bucket name'
 AWS_S3_REGION_NAME = ‘your region’
@@ -483,7 +491,7 @@ Email will print to the console unless you set up your own email account.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'your.email@example.com'
 
-For this project gmail was used. To use Gmail log in to your account and go to
+For this project Gmail was used. To use Gmail log in to your account and go to
 - All Settings
 - Other Google Account settings
 - Security (new tab opens)
@@ -524,7 +532,7 @@ EMAIL_HOST_PASS
 EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL
 
-You can now add
+You should now add
 
 USE_AWS = True
 DISABLE_COLLECTSTATIC = 0
@@ -536,7 +544,7 @@ You can now deploy the application from your GitHub repository. In Heroku
 - Authenticate to your GitHub repositories and select the correct GitHub repository for this project.
 - Click on Deploy Branch to make the application available publicly through Heroku
 
-This will take serveral minutes as Heroku installs the components outlined in requirements.txt. Once you you can open the app.
+This will take several  minutes as Heroku installs the components outlined in requirements.txt. Once complete the app is ready to be opened.
 
 # Bugs
 - When partway down a product page adding an item to the cart jupms you back to the top of the page. This is a limitation of the way Python and Django work. Using JavaScript would be a better experience.
@@ -568,13 +576,27 @@ This will take serveral minutes as Heroku installs the components outlined in re
 - Implement social media login
 - Print button captures the whole window. This could be made much neater
 - Search is very crude. Would be better to implement a third party such as Haystack
+- Proper layout of emails
 
 # Acknowledgements
+
+Thank you to Paul Gristwood at Owery Joinery for allowing me to redesign his companies website (https://www.owery.co.uk/).
+
+- Product names
+- Product SKU
+- Product images
+- Product descriptions
+- Product prices
+- Company images
+- Company branding and logo information
+
 Massive thanks to my Mentor Adegbenga Adeye for his professional view throughout the project and pushing me to to better :-)
 
 Also a huge thanks to the tutors a Code Institute for being there when I needed them and for them being able to always point me in the right direction!
 
+https://youtu.be/F5mRW0jo-U4 This video from freeCodeCamp.org was super useful it getting be going initially.
+
 Thanks to https://www.goranstimac.com/ for his video tutorial on setting up Bootstrap 5 toasts https://www.goranstimac.com/blog/2021/07/how-to-add-bootstrap-5-toast-on-page-load/
 
-https://smartmockups.com/ was used for the image in the README
+https://smartmockups.com/ was used for the image in the README.
 
