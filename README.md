@@ -155,7 +155,7 @@ Google font 'Nothing You Could Do' was used to bring a more casual tone with a c
     - The category cards on the home page make it easy to navigate to product list filtered to the category specified.
     - On the top navigation there is also a menu item to Products. When this is clicked the list of categories is also viewed.
 
-<img src="media/2.jpg" style="margin: 0;">
+<img src="media/UST2.jpg" style="margin: 0;">
 
  - View a list of specific products of my choosing based their category and style. So that I can select something from a specific list, where it is easy to compare like for like.
     - On any product page there is a filter and sort component.
