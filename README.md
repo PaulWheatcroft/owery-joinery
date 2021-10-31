@@ -569,6 +569,7 @@ This will take several  minutes as Heroku installs the components outlined in re
 - [Git](https://git-scm.com/): Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub
 - [GitPod](https://www.gitpod.io/): GitPod was used as the initial development environment
 - [GitHub](https://github.com/): GitHub is used to store the projects code after being pushed from Git
+- [DB DESIGNER](https://www.dbdesigner.net/): DB DESIGNER was used to design the database structure
 - [Figma](https://www.figma.com/): Figma was used to create the wireframes during the design process
 
 # Future Improvements
