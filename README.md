@@ -10,9 +10,6 @@ Owery have designed and hand-crafted kitchens, furniture, doors, windows for dec
 > The purpose of this project was to create a functional e-commerce site to replace the current static site.
 >
 
-
-The live project has been deployed to https://owery-joinery.herokuapp.com/
-
 # User Experience (UX)
 
 ## User Stories
